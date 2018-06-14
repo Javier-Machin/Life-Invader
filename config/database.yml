@@ -9,7 +9,7 @@ development:
   database: LifeInvader_development
   host: localhost
   pool: 5
-  username: LifeInvader
+  username: lifeinvader
   password: password1
 
 test:
@@ -18,11 +18,11 @@ test:
   database: LifeInvader_test
   host: localhost
   pool: 5
-  username: LifeInvader
+  username: lifeinvader
   password: password1
 
 production:
   <<: *default
   database: LifeInvader_production
-  username: LifeInvader
+  username: lifeinvader
   password: <%= ENV['LIFEINVADER_DATABASE_PASSWORD'] %>
