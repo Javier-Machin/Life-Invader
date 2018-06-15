@@ -4,7 +4,7 @@ class CommentTest < ActiveSupport::TestCase
   def setup
     @comment = Comment.new(author: users(:user1),
                            post: posts(:first),
-                           content: "post text content")
+                           content: "comment text content")
   end
 
   test "should be valid" do
