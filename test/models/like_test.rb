@@ -11,7 +11,7 @@ class LikeTest < ActiveSupport::TestCase
   end
 
   test "also works with comments" do 
-    @like.likeable = Comment.first
+    @like.likeable = comments(:first)
     assert @like.valid?
   end
 

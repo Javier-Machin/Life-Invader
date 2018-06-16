@@ -2,8 +2,8 @@
 
 first:
   author_id: 1
-  content: My first comment
+  content: My first post
 
 second:
   author_id: 2
-  content: My second comment
+  content: My second post
