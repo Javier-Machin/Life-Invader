@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+first:
+  author_id: 1
+  likeable_id: posts(:second)
+
+second:
+  author_id: 2
+  likeable_id: posts(:first)
