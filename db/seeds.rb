@@ -40,4 +40,8 @@ User.first.comments.create(post: Post.second,
 
 User.second.comments.create(post: Post.first,
                             content: "Facilisis gravida neque convallis a cras semper auctor 
-                                      neque vitae. Cursus in hac habitasse platea dictumst quisque.")    
+                                      neque vitae. Cursus in hac habitasse platea dictumst quisque.")
+
+# Create Likes
+
+User.first.likes.create(likeable: Post.second)    
