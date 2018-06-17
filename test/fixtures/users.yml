@@ -1,16 +1,19 @@
 user1:
+  id: 1
   name: First User
   email: user1@example.com
   encrypted_password: 123456
   birthdate: 1985/05/22
 
 user2:
+  id: 2
   name: Second User
   email: user2@example.com
   encrypted_password: 456789
   birthdate: 1984/05/22
 
 user3:
+  id: 3
   name: Third User
   email: user3@example.com
   encrypted_password: 912345

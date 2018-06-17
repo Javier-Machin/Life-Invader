@@ -1,0 +1,22 @@
+<div class="Main_container">
+  <div class="Feed_container">
+    <% @posts.each do |post| %>
+      <h3><%= post.content %></h3>
+      <h4>
+        <%= post.author.name %>
+        <%= post.likes.count %>
+        <%= post.created_at %>
+      </h4>
+      <h3>Comments:</h3>
+      <div class="Feed_comment">
+        <% post.comments.each do |comment| %>
+          <h3><%= comment.content %></h3>
+          <h4>
+            comment by: <%= comment.author.name %>
+            at: <%= comment.created_at %>
+          </h4>  
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
