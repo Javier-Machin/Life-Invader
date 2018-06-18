@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <%= render 'layouts/navbar' if current_user %> 
     <%= yield %>
   </body>
 </html>

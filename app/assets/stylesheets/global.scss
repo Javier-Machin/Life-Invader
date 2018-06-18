@@ -1,4 +1,59 @@
-.Main_container {  
+html, body {
   width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.Main_container {  
+  margin-top: 120px;
   text-align: center;
+}
+
+.Navbar {
+  font-family: 'Play', sans-serif;
+  border-bottom: 4px solid #ee5253;
+  background-color: white;
+  padding: 12px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  box-shadow: -5px -5px 20px 0px;
+  z-index: 10;
+}
+
+.Nav_buttons {
+  display: inline;
+  float: right;
+  text-align: right;
+  margin-right: 40px;
+  margin-top: 15px;
+  font-size: 22px;
+}
+
+.Nav_buttons a {
+  margin-left: 15px;
+  padding: 5px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  color: black;
+  opacity: 0.8;
+  transition: all 0.3s linear;
+  border-bottom: 1.5px solid white;
+}
+
+.Nav_buttons a:hover {
+  opacity: 1;
+  border-bottom: 1.5px solid black;
+}
+
+.Navbar span {
+  color: orange;
+  margin-left: 10px;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+#Big_title a {
+  text-decoration: none;
+  color: #ee5253;
 }
