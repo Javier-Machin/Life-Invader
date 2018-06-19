@@ -10,10 +10,17 @@ html, body {
 }
 
 .Navbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "left center-left center-right right";
   font-family: 'Play', sans-serif;
   border-bottom: 4px solid #ee5253;
-  background-color: white;
-  padding: 12px;
+  background: #f368e0; /* Old browsers */
+  background: -moz-linear-gradient(left, #f368e0 0%, #ff9f43 60%, #ff9f43 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f368e0', endColorstr='#ff9f43',GradientType=1 ); /* IE6-9 */
   width: 100%;
   position: fixed;
   top: 0px;
@@ -22,38 +29,38 @@ html, body {
 }
 
 .Nav_buttons {
+  grid-area: center-right;
+  align-self: center;
+  justify-self: center;
   display: inline;
-  float: right;
-  text-align: right;
-  margin-right: 40px;
-  margin-top: 15px;
-  font-size: 22px;
+  font-size: 19px;
 }
 
 .Nav_buttons a {
-  margin-left: 15px;
-  padding: 5px;
-  letter-spacing: 3px;
+  padding: 2px;
+  margin: 3px;
+  font-weight: 600;
   text-decoration: none;
-  color: black;
-  opacity: 0.8;
+  color: white;
   transition: all 0.3s linear;
-  border-bottom: 1.5px solid white;
+  border-bottom: 1.5px solid rgba(0,0,0,0);
 }
 
 .Nav_buttons a:hover {
   opacity: 1;
-  border-bottom: 1.5px solid black;
+  border-bottom: 1.5px solid white;
 }
 
 .Navbar span {
+  grid-area: center-left;
+  align-self: center;
+  justify-self: center;
   color: orange;
-  margin-left: 10px;
-  font-size: 45px;
+  font-size: 40px;
   font-weight: bold;
 }
 
-#Big_title a {
+#Big_title a { 
   text-decoration: none;
-  color: #ee5253;
+  color: white;
 }
