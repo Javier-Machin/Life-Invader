@@ -15,7 +15,7 @@ html, body {
   grid-template-areas:
     "left center-left center-right right";
   font-family: 'Play', sans-serif;
-  border-bottom: 4px solid #ee5253;
+  border-bottom: 3px solid #ee5253;
   background: #f368e0; /* Old browsers */
   background: -moz-linear-gradient(left, #f368e0 0%, #ff9f43 60%, #ff9f43 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); /* Chrome10-25,Safari5.1-6 */
@@ -33,34 +33,61 @@ html, body {
   align-self: center;
   justify-self: center;
   display: inline;
-  font-size: 19px;
 }
 
 .Nav_buttons a {
-  padding: 2px;
+  padding: 2px 2px 13.5px 2px;
   margin: 3px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   text-decoration: none;
   color: white;
   transition: all 0.3s linear;
-  border-bottom: 1.5px solid rgba(0,0,0,0);
+  border-bottom: 4px solid rgba(0,0,0,0);
 }
 
 .Nav_buttons a:hover {
-  opacity: 1;
-  border-bottom: 1.5px solid white;
+  border-bottom: 4px solid white;
 }
 
 .Navbar span {
   grid-area: center-left;
   align-self: center;
-  justify-self: center;
   color: orange;
   font-size: 40px;
   font-weight: bold;
 }
 
-#Big_title a { 
-  text-decoration: none;
-  color: white;
+#Alien_logo svg {
+  fill: white;
+}
+
+#Search_form {
+  grid-area: center-left;
+  align-self: center;
+  justify-self: center;
+  border: 0px solid white;
+  border-radius: 4px;
+
+  background: white;
+}
+
+.Text_field {
+  font-size: 16px;
+  border: 0px solid white;
+  border-radius: 4px;
+  margin-left: 3px;
+}
+
+.Text_field:focus {  
+  outline-color: white;
+}
+
+.Button {
+  font-size: 16px;
+  background-color: rgb(240,240,240);
+  border: 0px solid rgb(240,240,240);
+  padding: 3px 10px 3px 10px;
+  border-radius: 0px 4px 4px 0px;
+  margin: 0;
 }

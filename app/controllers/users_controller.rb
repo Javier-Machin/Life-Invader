@@ -6,4 +6,8 @@ class UsersController < ApplicationController
     @posts = @user.posts.order(:created_at)
   end
 
+  def index
+    @users = User.where("name ?", "params[:search][:name]")
+  end
+
 end
