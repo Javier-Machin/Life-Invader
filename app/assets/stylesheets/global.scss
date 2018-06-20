@@ -12,8 +12,7 @@ html, body {
 .Navbar {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "left center-left center-right right";
+  grid-template-areas: "left center-left center-right right";
   font-family: 'Play', sans-serif;
   border-bottom: 3px solid #ee5253;
   background: #f368e0; /* Old browsers */
@@ -22,6 +21,7 @@ html, body {
   background: linear-gradient(to right, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f368e0', endColorstr='#ff9f43',GradientType=1 ); /* IE6-9 */
   width: 100%;
+  min-width: 600px;
   position: fixed;
   top: 0px;
   box-shadow: -5px -5px 20px 0px;
@@ -31,34 +31,39 @@ html, body {
 .Nav_buttons {
   grid-area: center-right;
   align-self: center;
-  justify-self: center;
+  justify-self: right;
   display: inline;
+  min-width: 300px;
+  margin-top: 3px;
 }
 
 .Nav_buttons a {
-  padding: 2px 2px 13.5px 2px;
-  margin: 3px;
-  font-size: 18px;
+  padding: 2px 2px 6px 2px;
+  margin-left: 30px;
+  font-size: 26px;
   font-weight: 700;
   text-decoration: none;
   color: white;
   transition: all 0.3s linear;
-  border-bottom: 4px solid rgba(0,0,0,0);
+  border-bottom: 3.5px solid rgba(0,0,0,0);
 }
 
 .Nav_buttons a:hover {
-  border-bottom: 4px solid white;
+  border-bottom: 3.5px solid white;
 }
 
 .Navbar span {
-  grid-area: center-left;
+  grid-area: left;
   align-self: center;
+  justify-self: right;
   color: orange;
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
 }
 
 #Alien_logo svg {
+  position: relative;
+  top: 3px;
   fill: white;
 }
 
@@ -68,15 +73,20 @@ html, body {
   justify-self: center;
   border: 0px solid white;
   border-radius: 4px;
-
   background: white;
+  width: 60%;
+  min-width: 160px;
+  margin-left: 15px;
 }
 
 .Text_field {
-  font-size: 16px;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 650;
   border: 0px solid white;
   border-radius: 4px;
-  margin-left: 3px;
+  margin-left: 10px;
+  margin-top: 5px;
 }
 
 .Text_field:focus {  
@@ -84,10 +94,16 @@ html, body {
 }
 
 .Button {
+  display: inline-block;
   font-size: 16px;
-  background-color: rgb(240,240,240);
-  border: 0px solid rgb(240,240,240);
+  font-weight: 1000;
+  background-color: rgb(245,245,245);
+  border: 0px solid white;
   padding: 3px 10px 3px 10px;
   border-radius: 0px 4px 4px 0px;
   margin: 0;
+  float: right;
+  cursor: pointer;
+  opacity: 0.7;
 }
+
