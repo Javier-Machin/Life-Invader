@@ -24,13 +24,12 @@
   justify-self: right;
   display: inline;
   min-width: 300px;
-  margin-top: 3px;
 }
 
 .Nav_buttons a {
-  padding: 8px;
+  padding: 4px 8px;
   font-size: 26px;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   color: white;
   transition: all 0.3s linear;
@@ -85,34 +84,32 @@
   border: 0px solid white;
   padding: 3px 10px;
   border-radius: 0px 4px 4px 0px;
-  margin: 0;
   float: right;
   cursor: pointer;
   opacity: 0.7;
 }
 
-
-#Profile_button, #Home_button {
-  font-size: 19px;
-  font-weight: 800;
-  padding: 5px 20px;
+#Profile_button {
+  font-size: 15px;
+  font-weight: 1000;
+  padding: 5px 10px 5px 10px;
+  border-right: 2px solid darkorange;
 }
 
 #Home_button {
   font-size: 15px;
   font-weight: 1000;
-  color: rgba(0,0,0,0.8);
-  border-left: 2px solid darkorange;
+  padding: 5px 10px 5px 10px;
+  color: rgba(0,0,0,0.7);
 }
 
-
-#Profile_button:hover, #Home_button:hover {
+#Profile_button:hover {
   background-color: darkorange;
-  border-radius: 4px;
+  border-radius: 4px; 
 }
 
 #Pending_notifications, #Notifications, #Logout_button {
-  color: rgba(0,0,0,0.8);
+  color: rgba(0,0,0,0.7);
   position: relative;
   top: 1px
 }
@@ -122,7 +119,3 @@
   letter-spacing: 2px;
 }
 
-#Logout_button {
-  padding-right: 20px;
-  border-right: 2px solid darkorange;
-}
