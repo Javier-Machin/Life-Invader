@@ -8,6 +8,7 @@ class PostsController < ApplicationController
     end
     posts << current_user.posts.all.ids
     @posts = Post.order(:created_at).find(posts)
+    @requests = current_user.requests_received
   end
   
 end

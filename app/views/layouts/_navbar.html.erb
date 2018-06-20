@@ -31,8 +31,13 @@
   <div class="Nav_buttons">
     <a 
       id="Profile_button" href=<%= profile_path current_user.id %>>
-      <%= current_user.name.split(" ")[0].upcase %></a>
-    <a id="Home_button" href=<%= root_path %>>🔔</a>
+      <%= current_user.name.split(" ")[0] %> 
+    </a>
+    <a id=Home_button href=<%= root_path %>>H O M E</a>
+    <a 
+      id=<%= @requests ? "Pending_notifications" : "Notifications" %> 
+      href=<%= root_path %>><%= @requests ? "🔔#{@requests.count}": "🔔" %> 
+    </a>
     <%= link_to("🚪", destroy_user_session_path, method: :delete, id: "Logout_button") %>
   </div>
 </div>
