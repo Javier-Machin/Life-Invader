@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.where("name ?", "params[:search][:name]")
+    @users = User.where('name ILIKE :search', 
+                         search: "%#{params[:search][:name]}%")
   end
 
 end

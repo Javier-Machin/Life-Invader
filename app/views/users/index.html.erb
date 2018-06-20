@@ -1,0 +1,10 @@
+<div class="Main_container">
+  <div class="Feed_container">
+    <% @users.each do |user| %>      
+      <h4>
+        <%= user.name %>
+        <%= user.birthdate %>
+      </h4>
+    <% end %>
+  </div>
+</div>
