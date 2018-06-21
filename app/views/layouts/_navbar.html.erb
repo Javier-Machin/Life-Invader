@@ -37,13 +37,13 @@
     <a
       class="notifications"
       onclick="showMenu()"
-      id=<%= @requests ? "pending_notifications" : "notifications" %>> 
-      <%= @requests ? "🔔#{@requests.count}": "🔔" %>
+      id=<%= @requests && @requests.count > 0 ? "pending_notifications" : "notifications" %>> 
+      <%= @requests && @requests.count > 0 ? "🔔#{@requests.count}": "🔔" %>
     </a>
     <%= link_to("🚪", destroy_user_session_path, method: :delete, id: "logout_button") %>
   </div>
 
-  <% if @requests %>
+  <% if @requests && @requests.count > 0 %>
     <div class="dropdown_menu">
       <% @requests.each do |request| %>
         <%= link_to(User.find(request.request_sender).name,
