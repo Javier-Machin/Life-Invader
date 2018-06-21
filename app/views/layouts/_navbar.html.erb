@@ -33,14 +33,14 @@
       id="profile_button" href=<%= profile_path current_user.id %>>
       <%= current_user.name.split(" ")[0] %> 
     </a>
-    <a id=home_button href=<%= root_path %>>H O M E</a>
     <a
       class="notifications"
       onclick="showMenu()"
       id=<%= @requests && @requests.count > 0 ? "pending_notifications" : "notifications" %>> 
       <%= @requests && @requests.count > 0 ? "🔔#{@requests.count}": "🔔" %>
     </a>
-    <%= link_to("🚪", destroy_user_session_path, method: :delete, id: "logout_button") %>
+    <a id=home_button href=<%= root_path %>>H O M E</a>
+    <%= link_to("L O G O U T", destroy_user_session_path, method: :delete, id: "logout_button") %>
   </div>
 
   <% if @requests && @requests.count > 0 %>

@@ -22,12 +22,12 @@
   align-self: center;
   justify-self: right;
   display: inline;
-  min-width: 300px;
+  min-width: 320px;
 }
 
 .nav_buttons a {
   padding: 4px 8px;
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 600;
   text-decoration: none;
   color: white;
@@ -96,6 +96,13 @@
   border-right: 2px solid darkorange;
 }
 
+#logout_button {
+  font-size: 15px;
+  font-weight: 1000;
+  padding: 5px 10px 5px 10px;
+  color: rgba(0,0,0,0.7);
+}
+
 #home_button {
   font-size: 15px;
   font-weight: 1000;
@@ -106,12 +113,6 @@
 #profile_button:hover {
   background-color: darkorange;
   border-radius: 4px; 
-}
-
-#pending_notifications, #notifications, #logout_button {
-  color: rgba(0,0,0,0.7);
-  position: relative;
-  top: 1px
 }
 
 .notifications {
