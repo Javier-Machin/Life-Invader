@@ -4,17 +4,22 @@
   grid-template-areas: "left center-left center-right right";
   font-family: 'Play', sans-serif;
   border-bottom: 3px solid #ee5253;
-  background: #f368e0; /* Old browsers */
-  background: -moz-linear-gradient(left, #f368e0 0%, #ff9f43 60%, #ff9f43 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f368e0', endColorstr='#ff9f43',GradientType=1 ); /* IE6-9 */
+  background: #f368e0; 
+  /* FF3.6-15 */
+  background: -moz-linear-gradient(left, #f368e0 0%, #ff9f43 60%, #ff9f43 100%); 
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-linear-gradient(left, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(to right, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); 
+  /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f368e0',
+          endColorstr='#ff9f43',GradientType=1 ); 
   width: 100%;
   min-width: 300px;
   position: fixed;
-  top: 0px;
-  box-shadow: -5px -5px 20px 0px;
-  padding: 5px 0px;
+  top: 0;
+  box-shadow: -5px -5px 20px 0;
+  padding: 5px 0;
 }
 
 .nav_buttons {
@@ -54,7 +59,7 @@
   overflow: hidden;
   align-self: center;
   justify-self: center;
-  border: 0px solid white;
+  border: 0 solid white;
   border-radius: 4px;
   background: white;
   width: 60%;
@@ -66,7 +71,7 @@
   display: inline-block;
   font-size: 11px;
   font-weight: 650;
-  border: 0px solid white;
+  border: 0 solid white;
   border-radius: 4px;
   margin-left: 10px;
   margin-top: 7px;
@@ -81,9 +86,9 @@
   font-size: 16px;
   font-weight: 1000;
   background-color: rgb(245,245,245);
-  border: 0px solid white;
+  border: 0 solid white;
   padding: 3px 10px;
-  border-radius: 0px 4px 4px 0px;
+  border-radius: 0 4px 4px 0;
   float: right;
   cursor: pointer;
   opacity: 0.7;
@@ -95,6 +100,19 @@
   padding: 5px 10px 5px 10px;
   border-right: 2px solid darkorange;
 }
+
+.dropdown_link {
+  color: black;
+  text-decoration: none;
+  padding: 4px 8px 4px 8px;
+  font-size: 15px;
+}
+
+#profile_button:hover, .dropdown_link:hover {
+  background-color: darkorange;
+  border-radius: 4px; 
+}
+
 
 #logout_button {
   font-size: 15px;
@@ -110,11 +128,6 @@
   color: rgba(0,0,0,0.7);
 }
 
-#profile_button:hover {
-  background-color: darkorange;
-  border-radius: 4px; 
-}
-
 .notifications {
   cursor: pointer;
 }
@@ -128,14 +141,18 @@
   position: absolute;
   display: none;
   grid-area: center-right;  
-  right: 25px;
+  right: 135px;
   top: 44px;
   border: 2px solid #ee5253;
   padding: 8px;
   background-color: white;
   border-radius: 3px;
   transition: all 0.5s;
-  z-index: -3;
+}
+
+.dropdown_element {
+  border-bottom: 2px solid rgba(255,0,0,0.3);
+  padding: 5px;
 }
 
 .visible { 

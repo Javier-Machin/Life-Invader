@@ -7,7 +7,9 @@ class PostsController < ApplicationController
       posts << friend.posts.all.ids
     end
     posts << current_user.posts.all.ids
-    @posts = Post.order(:created_at).find(posts)
+    unless posts.count > 0
+      @posts = Post.order(:created_at).find(posts)
+    end
     @requests = current_user.requests_received
   end
   

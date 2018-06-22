@@ -1,9 +1,15 @@
 <div class="Main_container">
   <div class="Feed_container">
-    <% @users.each do |user| %>      
+    <% @users.each do |user| %>
+      <% next if user == current_user %>      
       <h4>
-        <%= user.name %>
-        <%= user.birthdate %>
+        <%= link_to(user.name,
+            profile_path(id: user.id), class: "dropdown_link",
+            target: :_blank) %>
+        <% if allows_friends?(user) %>    
+          <%= link_to("Send friend request", friend_requests_path(id: user.id),
+              method: :post, class: "dropdown_link") %>
+        <% end %>
       </h4>
     <% end %>
   </div>

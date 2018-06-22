@@ -46,12 +46,15 @@
   <% if @requests && @requests.count > 0 %>
     <div class="dropdown_menu">
       <% @requests.each do |request| %>
-        <%= link_to(User.find(request.request_sender).name,
-            profile_path(id: request.request_sender), target: :_blank) %>   
-        <%= link_to("Accept", friendship_path(id: request.request_sender),
-            method: :post, id: "accept_button") %>
-        <%= link_to("Decline", friend_request_path(id: request.id),
-            method: :delete, id: "decline_button") %>
+        <div class="dropdown_element">
+          <%= link_to(User.find(request.request_sender).name,
+              profile_path(id: request.request_sender), class: "dropdown_link",
+              target: :_blank) %>   
+          <%= link_to("Accept", friendship_path(id: request.request_sender),
+              method: :post, class: "dropdown_link") %>
+          <%= link_to("Decline", friend_request_path(id: request.id),
+              method: :delete, class: "dropdown_link") %>
+        </div>
       <% end %>
     </div>
   <% end %>
