@@ -3,13 +3,13 @@ class PostsController < ApplicationController
 
   def index
     posts = []
-    current_user.friends.each do |friend|
-      posts << friend.posts.all.ids
+    if current_user.friends.count > 0
+      current_user.friends.each do |friend|
+        posts << friend.posts.all.ids
+      end
     end
-    posts << current_user.posts.all.ids
-    unless posts.count > 0
-      @posts = Post.order(:created_at).find(posts)
-    end
+    posts << current_user.posts.all.ids if current_user.posts.count > 0
+    @posts = Post.order(:created_at).find(posts) if posts.count > 1
     @requests = current_user.requests_received
   end
   
