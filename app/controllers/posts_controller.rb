@@ -10,7 +10,6 @@ class PostsController < ApplicationController
     end
     posts << current_user.posts.all.ids if current_user.posts.count > 0
     @posts = Post.order(:created_at).find(posts) if posts.count > 1
-    @requests = current_user.requests_received
   end
   
 end

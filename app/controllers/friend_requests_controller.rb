@@ -1,10 +1,16 @@
 class FriendRequestsController < ApplicationController
+  before_action :authenticate_user!
   before_action :allowed_user?, only: [:destroy]
 
   def destroy
     FriendRequest.find(params[:id]).destroy 
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
+
+  def create
+    current_user.friend_requests.create(receiver: User.find(params[:id]))
+    redirect_back(fallback_location: root_path)
+  end 
 
   private 
 
