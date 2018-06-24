@@ -8,16 +8,18 @@
           <%= post.likes.count %>
           <%= post.created_at %>
         </h4>
-        <h3>Comments:</h3>
-        <div class="Feed_comment">
-          <% post.comments.each do |comment| %>
-            <h3><%= comment.content %></h3>
-            <h4>
-              comment by: <%= comment.author.name %>
-              at: <%= comment.created_at %>
-            </h4>  
-          <% end %>
-        </div>
+        <% if post.comments.any? %>
+          <h3>Comments:</h3>      
+          <div class="Feed_comment">
+            <% post.comments.each do |comment| %>
+              <h3><%= comment.content %></h3>
+              <h4>
+                comment by: <%= comment.author.name %>
+                at: <%= comment.created_at %>
+              </h4>  
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
   </div>

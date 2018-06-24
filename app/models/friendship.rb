@@ -2,6 +2,7 @@ class Friendship < ApplicationRecord
   belongs_to :sender, class_name: 'User', foreign_key: "sender_id"
   belongs_to :receiver, class_name: 'User', foreign_key: "receiver_id"
   after_create :delete_friend_request, :mirror_friendship
+  after_destroy :destroy_mirror_friendship
 
   def delete_friend_request
     @request = FriendRequest.find_by(sender: self.sender_id, 
@@ -15,5 +16,13 @@ class Friendship < ApplicationRecord
       Friendship.create(sender: self.receiver,
                         receiver: self.sender)
     end
-  end 
+  end
+
+  def destroy_mirror_friendship
+    if Friendship.find_by(sender: self.receiver_id,
+                          receiver: self.sender_id)
+      Friendship.find_by(sender: self.receiver,
+                        receiver: self.sender).destroy 
+    end
+  end  
 end

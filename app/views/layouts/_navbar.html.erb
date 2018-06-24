@@ -50,7 +50,7 @@
           <%= link_to(User.find(request.request_sender).name,
               profile_path(id: request.request_sender), class: "dropdown_link",
               target: :_blank) %>   
-          <%= link_to("Accept", friendships_path(id: request.request_sender),
+          <%= link_to("Accept", friendships_path(id: request.sender),
               method: :post, class: "dropdown_link") %>
           <%= link_to("Decline", friend_request_path(id: request.id),
               method: :delete, class: "dropdown_link") %>

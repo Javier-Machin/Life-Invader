@@ -35,5 +35,17 @@ class FriendshipTest < ActiveSupport::TestCase
     @friendship.save
     assert_not FriendRequest.find_by(sender: users(:user1),
                                      receiver: users(:user2))
-  end 
+  end
+
+  test "destroy mirror friendship after destroy" do
+    assert_difference ['users(:user1).friends.count',
+                       'users(:user2).friends.count'], 1 do
+      @friendship.save
+    end
+    assert_difference ['users(:user1).friends.count',
+                       'users(:user2).friends.count'], -1 do
+      users(:user1).friendships.last.destroy
+    end    
+  end
+
 end
