@@ -1,5 +1,14 @@
 <div class="Main_container">
   <div class="Feed_container">
+    <div class="post_form">
+      <%= form_for(@post) do |f| %>
+        <h3><%= f.text_area :content, size: "55x5", placeholder: "New post..." %></h3>
+        <h4>
+          <%= f.submit "Post" %>
+          <%= f.file_field :picture %>  
+        </h4>
+      <% end %>
+    </div>  
     <% if @posts %>
       <% @posts.each do |post| %>
         <h3><%= post.content %></h3>
