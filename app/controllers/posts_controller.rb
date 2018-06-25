@@ -10,7 +10,14 @@ class PostsController < ApplicationController
       end
     end
     posts << current_user.posts.all.ids if current_user.posts.count > 0
-    @posts = Post.order(:created_at).find(posts) if posts.count > 0
+    @posts = Post.order('created_at DESC').find(posts) if posts.count > 0
+  end
+
+  def create
+    @post = Post.new(author: current_user, 
+                     content: params[:post][:content], 
+                     picture: params[:post][:picture])
+    redirect_back(fallback_location: root_path) if @post.save
   end
   
 end
