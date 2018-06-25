@@ -11,5 +11,9 @@ class PostsController < ApplicationController
     posts << current_user.posts.all.ids if current_user.posts.count > 0
     @posts = Post.order(:created_at).find(posts) if posts.count > 0
   end
+
+  def new
+    @post = Post.new
+  end
   
 end
