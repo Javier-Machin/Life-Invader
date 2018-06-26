@@ -17,7 +17,8 @@ class PostsController < ApplicationController
     @post = Post.new(author: current_user, 
                      content: params[:post][:content], 
                      picture: params[:post][:picture])
-    redirect_back(fallback_location: root_path) if @post.save
+    @post.save
+    redirect_back(fallback_location: root_path) 
   end
   
 end

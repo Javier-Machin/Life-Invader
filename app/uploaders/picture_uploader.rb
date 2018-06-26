@@ -1,7 +1,7 @@
 class PictureUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
-  process resize_to_limit: [400, 400], if: :is_post?
-  process resize_to_limit: [200, 200], if: :is_user?
+    process resize_to_limit: [600, 600], if: :is_post?
+  # process resize_to_limit: [200, 200], if: :is_user?
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -11,7 +11,11 @@ class PictureUploader < CarrierWave::Uploader::Base
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
+  
 
+  def size_range
+    1..2.megabytes
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
@@ -22,14 +26,6 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
-   # version :normal, if: :is_post? do
-   #   process resize_to_limit: [400, 400]
-   # end
-
-   # version :profile, if: :is_user? do
-   #   process resize_to_fill: [250, 250]
-   # end
-
 
   # def scale(width, height)
   #   # do something
