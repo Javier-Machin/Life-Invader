@@ -13,7 +13,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     @user.confirm
     sign_in @user
     get root_path
-    assert_select "div.Feed_container"
+    assert_select "div.feed_container"
   end
 
 end

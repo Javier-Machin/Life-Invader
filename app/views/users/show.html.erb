@@ -1,6 +1,18 @@
-<div class="Main_container">
+<div class="main_container">
   <h2><%= @user.name %> profile</h2>
-  <div class="Feed_container">
+  <div class="profile_pic">
+    <%= image_tag current_user.profile.url if current_user.profile? %>
+    <% if @user == current_user %>
+        <%= form_for(@user) do |f| %>
+          <%= f.submit "Update" %>
+          <%= f.file_field :profile,
+                            accept: 'image/jpeg,image/gif,image/png',
+                            required: true  %>  
+          <% end %>
+    <% end %>
+  </div>
+  <div class="feed_container">
+
     <% @posts.each do |post| %>
       <h3><%= post.content %></h3>
       <h4>
@@ -9,7 +21,7 @@
         <%= post.created_at %>
       </h4>
       <h3>Comments:</h3>
-      <div class="Feed_comment">
+      <div class="feed_comment">
         <% post.comments.each do |comment| %>
           <h3><%= comment.content %></h3>
           <h4>
@@ -21,3 +33,12 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  $('#user_profile').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 2) {
+      alert('Maximum file size is 2MB. Please choose a smaller file.');
+    }
+  });
+</script>

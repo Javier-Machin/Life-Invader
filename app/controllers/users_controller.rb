@@ -11,4 +11,12 @@ class UsersController < ApplicationController
                          search: "%#{params[:search][:name]}%")
   end
 
+  def update
+    @user = current_user    
+    if @user.update(profile: params[:user][:profile])
+      flash[:success] = "Profile updated"
+      redirect_back(fallback_location: root_path) 
+    end
+  end
+
 end

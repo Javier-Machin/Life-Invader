@@ -1,5 +1,5 @@
-<div class="Main_container">
-  <div class="Feed_container">
+<div class="main_container">
+  <div class="feed_container">
     <div class="post_form">
       <%= form_for(@post) do |f| %>
         <h3><%= f.text_area :content, size: "55x5", placeholder: "New post..." %></h3>
@@ -10,27 +10,29 @@
       <% end %>
     </div>  
     <% if @posts %>
-      <% @posts.each do |post| %>
-        <h3><%= image_tag post.picture.url if post.picture? %></h3>
-        <h3><%= post.content %></h3>
-        <h4>
-          <%= post.author.name %>
-          <%= post.likes.count %>
-          <%= post.created_at %>
-        </h4>
-        <% if post.comments.any? %>
-          <h3>Comments:</h3>      
-          <div class="Feed_comment">
-            <% post.comments.each do |comment| %>
-              <h3><%= comment.content %></h3>
-              <h4>
-                comment by: <%= comment.author.name %>
-                at: <%= comment.created_at %>
-              </h4>  
-            <% end %>
-          </div>
+      <div class="feed_post"
+        <% @posts.each do |post| %>
+          <h3><%= image_tag post.picture.url if post.picture? %></h3>
+          <h3><%= post.content %></h3>
+          <h4>
+            <%= post.author.name %>
+            <%= post.likes.count %>
+            <%= post.created_at %>
+          </h4>
+          <% if post.comments.any? %>
+            <h3>Comments:</h3>      
+            <div class="feed_comment">
+              <% post.comments.each do |comment| %>
+                <h3><%= comment.content %></h3>
+                <h4>
+                  comment by: <%= comment.author.name %>
+                  at: <%= comment.created_at %>
+                </h4>  
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
     <% end %>
   </div>
 </div>

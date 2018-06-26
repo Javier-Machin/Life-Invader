@@ -4,9 +4,17 @@ html, body {
   padding: 0;
 }
 
-.Main_container {  
+.main_container {  
   margin-top: 110px;
   margin-bottom: 30px;
   text-align: center;
 }
 
+/* user profile */
+
+.profile_pic {
+  display: block;
+  width: 40%;
+  margin: auto;
+  text-align: left;
+}

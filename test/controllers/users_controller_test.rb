@@ -13,7 +13,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user.confirm
     sign_in @user
     get profile_path(id: 1)
-    assert_select "div.Feed_container"
+    assert_select "div.feed_container"
   end
 
 end
