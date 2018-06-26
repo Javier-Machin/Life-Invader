@@ -1,8 +1,7 @@
 class PictureUploader < CarrierWave::Uploader::Base
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
-
+  include CarrierWave::MiniMagick
+  process resize_to_limit: [400, 400], if: :is_post?
+  process resize_to_limit: [200, 200], if: :is_user?
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -23,7 +22,15 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process scale: [200, 300]
-  #
+   # version :normal, if: :is_post? do
+   #   process resize_to_limit: [400, 400]
+   # end
+
+   # version :profile, if: :is_user? do
+   #   process resize_to_fill: [250, 250]
+   # end
+
+
   # def scale(width, height)
   #   # do something
   # end
@@ -41,4 +48,13 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+  private
+    
+    def is_post? picture
+      model.try(:picture)
+    end
+
+    def is_user? picture
+      model.try(:profile)
+    end
 end
