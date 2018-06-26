@@ -11,10 +11,8 @@
     </div>  
     <% if @posts %>
       <% @posts.each do |post| %>
-        <h3>
-          <%= post.content %>
-          <%= image_tag post.picture.url if post.picture? %>  
-        </h3>
+        <h3><%= image_tag post.picture.url if post.picture? %></h3>
+        <h3><%= post.content %></h3>
         <h4>
           <%= post.author.name %>
           <%= post.likes.count %>
