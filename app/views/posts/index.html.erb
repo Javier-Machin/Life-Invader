@@ -33,10 +33,9 @@
           <% end %>
           <div class="comment_form">
             <%= form_for(@comment) do |f| %>
-              <h3><%= f.text_area :content, size: "55x5", placeholder: "New comment..." %></h3>
-              <h4>
-                <%= f.submit "Comment" %>
-              </h4>
+              <h3><%= f.text_area :content, size: "55x5", placeholder: "New comment...", required: true %></h3>
+                  <%= f.hidden_field :post_id, value: post.id %>
+              <h4><%= f.submit "Comment" %></h4>
             <% end %>
           </div>  
         <% end %>
