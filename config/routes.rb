@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :friendships
   resources :friend_requests
+  resources :comments
   
   get  '/profile/:id', to: 'users#show', as: 'profile'
   patch  '/profile/:id', to: 'users#update', as: 'user'

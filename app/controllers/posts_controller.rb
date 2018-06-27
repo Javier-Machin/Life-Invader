@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
+    @comment = Comment.new
     posts = []
     if current_user.friends.count > 0
       current_user.friends.each do |friend|
