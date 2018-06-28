@@ -1,7 +1,7 @@
 <div class="main_container">
   <h2><%= @user.name %> profile</h2>
   <div class="profile_pic">
-    <%= image_tag current_user.profile.url if current_user.profile? %>
+    <%= image_tag @user.profile.url if current_user.profile? %>
     <% if @user == current_user %>
         <%= form_for(@user) do |f| %>
           <%= f.submit "Update" %>
@@ -12,24 +12,11 @@
     <% end %>
   </div>
   <div class="feed_container">
-
-    <% @posts.each do |post| %>
-      <h3><%= post.content %></h3>
-      <h4>
-        <%= post.author.name %>
-        <%= post.likes.count %>
-        <%= post.created_at %>
-      </h4>
-      <h3>Comments:</h3>
-      <div class="feed_comment">
-        <% post.comments.each do |comment| %>
-          <h3><%= comment.content %></h3>
-          <h4>
-            comment by: <%= comment.author.name %>
-            at: <%= comment.created_at %>
-          </h4>  
-        <% end %>
-      </div>
+    <% if @user == current_user %>
+      <%= render 'posts/form' %>
+    <% end %>
+    <% if @posts %>
+      <%= render 'posts/feed' %>
     <% end %>
   </div>
 </div>
