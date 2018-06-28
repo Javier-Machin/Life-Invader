@@ -9,6 +9,10 @@
                             accept: 'image/jpeg,image/gif,image/png',
                             required: true  %>  
           <% end %>
+    <% elsif current_user.friends.include?(@user) %>
+      <%= link_to("Unfriend", friendship_path(@user.id),
+                   method: :delete, class: "delete_link",
+                   data: {:confirm => 'Are you sure?'}) %>
     <% end %>
   </div>
   <div class="feed_container">
