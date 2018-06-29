@@ -15,9 +15,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(author: current_user, 
-                     content: params[:post][:content], 
-                     picture: params[:post][:picture])
+    @post = Post.new(author:  current_user, 
+                     content: post_params[:content], 
+                     picture: post_params[:picture])
     @post.save
     redirect_back(fallback_location: root_path) 
   end
@@ -27,4 +27,10 @@ class PostsController < ApplicationController
     @post.destroy if @post.author == current_user 
     redirect_back(fallback_location: root_path)
   end
+
+  private
+
+    def post_params
+      params.require(:post).permit(:content, :picture)
+    end
 end

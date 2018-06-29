@@ -12,8 +12,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
   test "should not allow wrong user to delete comments" do
     #User1 create a post
     post comments_path(comment: { content: "comment content", 
-                                  author: @user.id, 
-                                  post_id: @user.posts.first })
+                                  post:    @user.posts.first })
     @comment = @user.comments.last
     #Attempt to delete that comment as User3
     @user = users(:user3)
