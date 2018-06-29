@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class FriendRequestsControllerTest < ActionDispatch::IntegrationTest
- include Devise::Test::IntegrationHelpers
+  include Devise::Test::IntegrationHelpers
 
   def setup
     #User1 sends User2 a friend request
