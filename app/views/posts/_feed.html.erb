@@ -4,8 +4,19 @@
     <h3><%= post.content %></h3>
     <h4>
       <%= post.author.name %>
-      <%= post.likes.count %>
       <%= post.created_at %>
+      <%= post.likes.count %>
+      <% if current_user.likes.find_by(likeable: post) %>
+        <%= link_to("👎", 
+                    like_path(type: "post", id: Like.find_by(author: current_user, likeable: post).id),                                 
+                    method: :delete, 
+                    class: "delete_link") %>
+      <% else %>
+        <%= link_to("👍", 
+                    likes_path(type: "post", like: { likeable: post }),                                 
+                    method: :post, 
+                    class: "delete_link") %>
+      <% end %>
       <% if post.author == current_user %>
         <%= link_to("Delete post", post_path(id: post.id),
             method: :delete, class: "delete_link") %>
@@ -19,6 +30,18 @@
           <h4>
             comment by: <%= comment.author.name %>
             at: <%= comment.created_at %>
+            <%= comment.likes.count %>
+            <% if current_user.likes.find_by(likeable: comment) %>
+              <%= link_to("👎", 
+                          like_path(type: "comment", id: Like.find_by(author: current_user, likeable: comment).id),                                 
+                          method: :delete, 
+                          class: "delete_link") %>
+            <% else %>
+              <%= link_to("👍", 
+                          likes_path(type: "comment", like: { likeable: comment }),                                 
+                          method: :post, 
+                          class: "delete_link") %>
+            <% end %>
             <% if comment.author == current_user %>
               <%= link_to("Delete comment", comment_path(id: comment.id),
                   method: :delete, class: "delete_link") %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :posts
+  resources :likes
   resources :friendships
   resources :friend_requests
   resources :comments
