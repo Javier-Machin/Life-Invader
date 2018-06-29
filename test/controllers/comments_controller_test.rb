@@ -2,8 +2,8 @@ require 'test_helper'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
+  
   def setup
-    #User1 create a post
     @user = users(:user1)
     @user.confirm
     sign_in @user

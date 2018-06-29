@@ -26,4 +26,17 @@ class PostTest < ActiveSupport::TestCase
     assert_not @post.valid?
   end
 
+  test "also delete it's comments when a post is deleted" do 
+    @post.save
+    
+    assert_difference ['Comment.count'], 1 do
+      @post.comments.create(author: users(:user1),
+                            content: "comment content")
+    end
+
+    assert_difference ['Comment.count'], -1 do
+      @post.destroy
+    end
+  end 
+
 end

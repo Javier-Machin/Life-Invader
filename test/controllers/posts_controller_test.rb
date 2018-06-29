@@ -3,6 +3,11 @@ require 'test_helper'
 class PostsControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
 
+  def setup
+    @user = users(:user1)
+    @user.confirm
+  end
+
   test "should redirect to sign in if not signed in" do
     get root_path
     assert_redirected_to new_user_session_path
@@ -18,8 +23,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   
   test "should not allow wrong user to delete posts" do
     #User1 create a post
-    @user = users(:user1)
-    @user.confirm
     sign_in @user
     post posts_path(post: { content: "post content", author: @user.id })
     @post = @user.posts.last
@@ -31,4 +34,5 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     #Confirm it's still there
     assert User.first.posts.last.content == "post content"
   end
+
 end
