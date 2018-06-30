@@ -1,7 +1,7 @@
 <div class="main_container">
   <h2><%= @user.name %> profile</h2>
   <div class="profile_pic">
-    <%= image_tag @user.profile.url if current_user.profile? %>
+    <%= image_tag @user.profile.url if @user.profile? %>
     <% if @user == current_user %>
         <%= form_for(@user) do |f| %>
           <%= f.submit "Update" %>
@@ -14,6 +14,9 @@
                    method: :delete, class: "delete_link",
                    data: {:confirm => 'Are you sure?'}) %>
     <% end %>
+    <%= link_to("Friend list", 
+                 index_path(user_friend_list: @user.id),
+                 method: :get, class: "delete_link") %>
   </div>
   <div class="feed_container">
     <% if @user == current_user %>

@@ -3,12 +3,16 @@
     <h3><%= image_tag post.picture.url if post.picture? %></h3>
     <h3><%= post.content %></h3>
     <h4>
-      <%= post.author.name %>
+      <%= link_to(post.author.name,
+                  profile_path(id: post.author.id), 
+                  class: "dropdown_link") %>
       <%= post.created_at %>
       <%= post.likes.count %>
-      <% if current_user.likes.find_by(likeable: post) %>
+      <% if post.likes.map(&:author).include?(current_user) %>
         <%= link_to("👎", 
-                    like_path(type: "post", id: Like.find_by(author: current_user, likeable: post).id),                                 
+                    like_path(type: "post", 
+                              id: Like.find_by(author: current_user, 
+                                               likeable: post).id),                                 
                     method: :delete, 
                     class: "delete_link") %>
       <% else %>
@@ -28,34 +32,47 @@
         <% post.comments.each do |comment| %>
           <h3><%= comment.content %></h3>
           <h4>
-            comment by: <%= comment.author.name %>
+            comment by: <%= link_to(comment.author.name,
+                            profile_path(id: comment.author.id), 
+                            class: "dropdown_link") %>
             at: <%= comment.created_at %>
             <%= comment.likes.count %>
-            <% if current_user.likes.find_by(likeable: comment) %>
+            <% if comment.likes.map(&:author).include?(current_user) %>
               <%= link_to("👎", 
-                          like_path(type: "comment", id: Like.find_by(author: current_user, likeable: comment).id),                                 
-                          method: :delete, 
-                          class: "delete_link") %>
+                          like_path(type: "comment", 
+                                    id: Like.find_by(author: current_user, 
+                                                     likeable: comment).id),                                 
+                                    method: :delete, 
+                                    class: "delete_link") %>
             <% else %>
               <%= link_to("👍", 
-                          likes_path(type: "comment", like: { likeable: comment }),                                 
-                          method: :post, 
-                          class: "delete_link") %>
+                          likes_path(type: "comment", 
+                                     like: { likeable: comment }),                                 
+                                     method: :post, 
+                                     class: "delete_link") %>
             <% end %>
             <% if comment.author == current_user %>
-              <%= link_to("Delete comment", comment_path(id: comment.id),
-                  method: :delete, class: "delete_link") %>
+              <%= link_to("Delete comment", 
+                           comment_path(id: comment.id),
+                           method: :delete, 
+                           class: "delete_link") %>
             <% end %>
           </h4>  
         <% end %>
       </div>
     <% end %>
-    <div class="comment_form">
-      <%= form_for(@comment) do |f| %>
-        <h3><%= f.text_area :content, size: "55x5", placeholder: "New comment...", required: true %></h3>
-            <%= f.hidden_field :post, value: post.id %>
-        <h4><%= f.submit "Comment" %></h4>
-      <% end %>
-    </div>  
+    <% if current_user.friends.include?(post.author) || 
+          current_user == post.author %>
+      <div class="comment_form">
+        <%= form_for(@comment) do |f| %>
+          <h3><%= f.text_area :content, 
+                               size: "55x5",
+                               placeholder: "New comment...", 
+                               required: true %></h3>
+              <%= f.hidden_field :post, value: post.id %>
+          <h4><%= f.submit "Comment" %></h4>
+        <% end %>
+      </div> 
+    <% end %> 
   <% end %>
 </div>

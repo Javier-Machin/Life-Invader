@@ -9,8 +9,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.where('name ILIKE :search', 
-                         search: "%#{params[:search][:name]}%")
+    if params[:user_friend_list] 
+      @users = User.find(params[:user_friend_list]).friends
+    else
+      @users = User.where('name ILIKE :search', 
+                           search: "%#{params[:search][:name]}%")
+    end
   end
 
   def update
