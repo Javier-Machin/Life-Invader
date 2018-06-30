@@ -10,7 +10,9 @@ class PostsController < ApplicationController
       posts += friend.posts.pluck(:id)
     end
     posts += current_user.posts.pluck(:id) if current_user.posts.count > 0
-    @posts = Post.where(id: posts).includes(:comments, :author).order('created_at DESC') if posts.count > 0
+    @posts = Post.where(id: posts).includes(:author, 
+                                            comments:[:author, likes:[:author]], 
+                                            likes:[:author]).order('created_at DESC') 
   end
 
   def create

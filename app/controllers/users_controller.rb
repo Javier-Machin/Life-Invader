@@ -5,7 +5,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @comment = Comment.new
     @post = Post.new
-    @posts = @user.posts.order('created_at DESC')
+    @posts = @user.posts.includes(:author, 
+                                  comments:[:author, likes:[:author]], 
+                                  likes:[:author]).order('created_at DESC')
   end
 
   def index
