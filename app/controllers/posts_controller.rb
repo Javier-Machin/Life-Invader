@@ -7,11 +7,11 @@ class PostsController < ApplicationController
     posts = []
     if current_user.friends.count > 0
       current_user.friends.each do |friend|
-        posts << friend.posts.all.ids
+        posts = friend.posts.pluck(:id)
       end
     end
-    posts << current_user.posts.all.ids if current_user.posts.count > 0
-    @posts = Post.order('created_at DESC').find(posts) if posts.count > 0
+    posts += current_user.posts.pluck(:id) if current_user.posts.count > 0
+    @posts = Post.where(id: posts).includes(:likes, :comments).order('created_at DESC') if posts.count > 0
   end
 
   def create
