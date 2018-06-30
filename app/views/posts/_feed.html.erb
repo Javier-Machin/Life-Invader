@@ -8,7 +8,7 @@
                   class: "dropdown_link") %>
       <%= post.created_at %>
       <%= post.likes.count %>
-      <% if post.likes.map(&:author).include?(current_user) %>
+      <% if post.likes.includes(:author).map(&:author).include?(current_user) %>
         <%= link_to("👎", 
                     like_path(type: "post", 
                               id: Like.find_by(author: current_user, 
@@ -29,7 +29,7 @@
     <% if post.comments.any? %>
       <h3>Comments:</h3>      
       <div class="feed_comment">
-        <% post.comments.each do |comment| %>
+        <% post.comments.includes(:author).each do |comment| %>
           <h3><%= comment.content %></h3>
           <h4>
             comment by: <%= link_to(comment.author.name,
@@ -37,7 +37,7 @@
                             class: "dropdown_link") %>
             at: <%= comment.created_at %>
             <%= comment.likes.count %>
-            <% if comment.likes.map(&:author).include?(current_user) %>
+            <% if comment.likes.includes(:author).map(&:author).include?(current_user) %>
               <%= link_to("👎", 
                           like_path(type: "comment", 
                                     id: Like.find_by(author: current_user, 
