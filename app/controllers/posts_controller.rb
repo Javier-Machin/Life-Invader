@@ -5,13 +5,12 @@ class PostsController < ApplicationController
     @post = Post.new
     @comment = Comment.new
     posts = []
-    if current_user.friends.count > 0
-      current_user.friends.each do |friend|
-        posts = friend.posts.pluck(:id)
-      end
+    friends = current_user.friends
+    friends.each do |friend|
+      posts += friend.posts.pluck(:id)
     end
     posts += current_user.posts.pluck(:id) if current_user.posts.count > 0
-    @posts = Post.where(id: posts).includes(:likes, :comments).order('created_at DESC') if posts.count > 0
+    @posts = Post.where(id: posts).includes(:likes, :comments, :author).order('created_at DESC') if posts.count > 0
   end
 
   def create

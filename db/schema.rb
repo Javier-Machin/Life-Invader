@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_26_145558) do
+ActiveRecord::Schema.define(version: 2018_06_30_153148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2018_06_26_145558) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
+    t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
   create_table "friend_requests", force: :cascade do |t|
@@ -28,6 +30,8 @@ ActiveRecord::Schema.define(version: 2018_06_26_145558) do
     t.integer "request_receiver"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["request_receiver"], name: "index_friend_requests_on_request_receiver"
+    t.index ["request_sender"], name: "index_friend_requests_on_request_sender"
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -35,6 +39,9 @@ ActiveRecord::Schema.define(version: 2018_06_26_145558) do
     t.integer "receiver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_friendships_on_receiver_id"
+    t.index ["sender_id"], name: "index_friendships_on_sender_id"
+    t.index ["sender_id"], name: "index_friendships_on_sender_id_and_sender_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -43,6 +50,8 @@ ActiveRecord::Schema.define(version: 2018_06_26_145558) do
     t.string "likeable_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_likes_on_author_id"
+    t.index ["likeable_id", "likeable_type"], name: "index_likes_on_likeable_id_and_likeable_type"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -51,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_06_26_145558) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "picture"
+    t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
