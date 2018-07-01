@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     friends.each do |friend|
       posts += friend.posts.pluck(:id)
     end
-    posts += current_user.posts.pluck(:id) if current_user.posts.count > 0
+    posts += current_user.posts.pluck(:id) 
     @posts = Post.where(id: posts).includes(:author, 
                                             comments:[:author, likes:[:author]], 
                                             likes:[:author]).order('created_at DESC') 
