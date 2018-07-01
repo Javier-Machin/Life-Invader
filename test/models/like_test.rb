@@ -10,7 +10,7 @@ class LikeTest < ActiveSupport::TestCase
     assert @like.valid?
   end
 
-  test "also works with comments" do 
+  test "should works with comments" do 
     @like.likeable = comments(:first)
     assert @like.valid?
   end
@@ -29,6 +29,13 @@ class LikeTest < ActiveSupport::TestCase
     duplicate_like = @like.dup
     @like.save 
     assert_not duplicate_like.valid?
+  end
+
+  test "should allow to like comments in already liked posts" do
+    @like.save
+    comment_like = Like.new(author:   users(:user1),
+                            likeable: comments(:first))
+    assert comment_like.valid?
   end
 
   test "different users can like same post" do
