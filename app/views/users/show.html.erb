@@ -1,7 +1,11 @@
 <div class="main_container">
   <h2><%= @user.name %> profile</h2>
   <div class="profile_pic">
-    <%= image_tag @user.profile.url if @user.profile? %>
+    <% if @user.profile.present? %>
+      <%= image_tag @user.profile.url %>
+    <% elsif @user.remote_profile.present? %>
+      <%= image_tag @user.remote_profile %>
+    <% end %>
     <% if @user == current_user %>
         <%= form_for(@user) do |f| %>
           <%= f.submit "Update" %>
