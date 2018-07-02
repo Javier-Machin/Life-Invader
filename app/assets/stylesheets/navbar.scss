@@ -22,6 +22,31 @@
   padding: 5px 0;
 }
 
+.logged_off_navbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "left center-left center-right right";
+  font-family: 'Play', sans-serif;
+  border-bottom: 3px solid #ee5253;
+  background: #f368e0; 
+  /* FF3.6-15 */
+  background: -moz-linear-gradient(left, #f368e0 0%, #ff9f43 60%, #ff9f43 100%); 
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-linear-gradient(left, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); 
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(to right, #f368e0 0%,#ff9f43 60%,#ff9f43 100%); 
+  /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f368e0',
+          endColorstr='#ff9f43',GradientType=1 ); 
+  width: 100%;
+  min-width: 300px;
+  position: fixed;
+  height: 70px;
+  top: 0;
+  box-shadow: -5px -5px 20px 0;
+  padding: 5px 0;
+}
+
 .nav_buttons {
   grid-area: center-right;
   align-self: center;
@@ -54,6 +79,23 @@
   fill: white;
 }
 
+#logged_off_alien_logo svg {
+  fill: white;
+  transform: scale(2.0);
+}
+
+#logged_off_alien_logo {
+  align-self: center;
+  grid-area: center-right;
+  fill: white;
+}
+
+#logged_off_title {
+  grid-area: center-left;
+  font-size: 30px;
+  align-self: flex-end;
+}
+
 #search_form {
   grid-area: center-left;
   overflow: hidden;
@@ -77,7 +119,24 @@
   margin-top: 7px;
 }
 
-.text_field:focus {  
+.field {
+  display: inline-block;
+  font-size: 25px;
+  font-weight: 650;
+  border: 1 solid black;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+select {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 650;
+  border: 0 solid black;
+  border-radius: 4px;
+}
+
+.text_field:focus, .field:focus, select:focus {  
   outline-color: white;
 }
 

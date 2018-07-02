@@ -10,7 +10,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' if current_user %> 
+    <% if current_user %>
+      <%= render 'layouts/navbar' %> 
+    <% else %>
+      <%= render 'layouts/logged_off_navbar' %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
