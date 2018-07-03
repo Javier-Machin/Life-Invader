@@ -1,12 +1,16 @@
-<div class="feed_post"
+
   <% @posts.each do |post| %>
-    <h3><%= image_tag post.picture.url if post.picture? %></h3>
-    <h3><%= post.content %></h3>
-    <h4>
+    <div class="feed_post">
+      <div class="post_info">
+      <% if post.author.profile.present? %>
+        <div class="small_avatar"><%= image_tag post.author.profile.url %></div>
+      <% elsif post.author.remote_profile.present? %>
+        <div class="small_avatar"><%= image_tag post.author.remote_profile %></div>
+      <% end %>
       <%= link_to(post.author.name,
                   profile_path(id: post.author.id), 
                   class: "dropdown_link") %>
-      <%= post.created_at %>
+      <%= "#{time_ago_in_words(post.created_at)} ago" %>
       <%= post.likes.size %>
       <% if post.likes.map(&:author).include?(current_user) %>
         <%= link_to("👎", 
@@ -25,25 +29,32 @@
         <%= link_to("Delete post", post_path(id: post.id),
             method: :delete, class: "delete_link") %>
       <% end %>
-    </h4>
-    <% if post.comments.any? %>
-      <h3>Comments:</h3>      
-      <div class="feed_comment">
+      </div>
+      <div><%= image_tag post.picture.url if post.picture? %></div>
+      <div class="post_content"><%= post.content %></div>
+      
+      <% if post.comments.any? %>
         <% post.comments.each do |comment| %>
-          <h3><%= comment.content %></h3>
-          <h4>
-            comment by: <%= link_to(comment.author.name,
-                            profile_path(id: comment.author.id), 
-                            class: "dropdown_link") %>
-            at: <%= comment.created_at %>
-            <%= comment.likes.size %>
-            <% if comment.likes.map(&:author).include?(current_user) %>
-              <%= link_to("👎", 
-                          like_path(type: "comment", 
-                                    id: Like.find_by(author: current_user, 
-                                                     likeable: comment).id),                                 
-                                    method: :delete, 
-                                    class: "delete_link") %>
+          <div class="feed_comment">
+            <div class="comment_info">
+              <% if comment.author.profile.present? %>
+                <div class="small_avatar_comments"><%= image_tag comment.author.profile.url %></div>
+              <% elsif comment.author.remote_profile.present? %>
+                <div class="small_avatar_comments"><%= image_tag comment.author.remote_profile %></div>
+              <% end %>
+              <%= link_to(comment.author.name,
+                          profile_path(id: comment.author.id), 
+                          class: "dropdown_link") %>
+            <%= "#{time_ago_in_words(comment.created_at)} ago" %>
+              <%= comment.likes.size %>
+              <% if comment.likes.map(&:author).include?(current_user) %>
+                <%= link_to("👎", 
+                            like_path(type: "comment", 
+                                      id: Like.find_by(author: current_user, 
+                                                       likeable: comment).id),                                 
+                                      method: :delete, 
+                                      class: "delete_link") %>
+          
             <% else %>
               <%= link_to("👍", 
                           likes_path(type: "comment", 
@@ -54,23 +65,28 @@
             <% if comment.author == current_user %>
               <%= link_to("Delete comment", 
                            comment_path(id: comment.id),
-                           method: :delete, 
-                           class: "delete_link") %>
+                           method: :delete) %>
             <% end %>
-          </h4>  
-        <% end %>
+            </div><br />
+            <%= comment.content %>
+            <div class="comment_info">
+              
+            </div>
+            <br />  
+          <% end %>
+        </div>
       </div>
     <% end %>
     <% if current_user.friends.include?(post.author) || 
           current_user == post.author %>
       <div class="comment_form">
         <%= form_for(@comment) do |f| %>
-          <h3><%= f.text_area :content, 
-                               size: "55x5",
-                               placeholder: "New comment...", 
-                               required: true %></h3>
-              <%= f.hidden_field :post, value: post.id %>
-          <h4><%= f.submit "Comment" %></h4>
+          <%= f.text_area :content, 
+                           size: "55x5",
+                           placeholder: "New comment...", 
+                           required: true %><br />
+          <%= f.hidden_field :post, value: post.id %>
+        <%= f.submit "Send comment", class: "button" %>
         <% end %>
       </div> 
     <% end %> 

@@ -119,24 +119,7 @@
   margin-top: 7px;
 }
 
-.field {
-  display: inline-block;
-  font-size: 25px;
-  font-weight: 650;
-  border: 1 solid black;
-  border-radius: 4px;
-  margin-top: 10px;
-}
-
-select {
-  display: inline-block;
-  font-size: 20px;
-  font-weight: 650;
-  border: 0 solid black;
-  border-radius: 4px;
-}
-
-.text_field:focus, .field:focus, select:focus {  
+.text_field:focus {  
   outline-color: white;
 }
 

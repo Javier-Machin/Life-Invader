@@ -2,5 +2,30 @@
   display: inline-block;
   width: 40%;
   min-width: 600px;
+  background-color: white;
 }
 
+select {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 650;
+  border: 1 solid black;
+  border-radius: 4px;
+}
+
+.select:focus {  
+  outline-color: white;
+}
+
+.field:focus {  
+  outline-color: white;
+}
+
+.field {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 650;
+  border: 1 solid black;
+  border-radius: 4px;
+  margin-top: 10px;
+}

@@ -3,10 +3,17 @@
   text-align: left;
   width: 40%;
   min-width: 600px;
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .feed_comment {
-  border: 1px solid black;
+  border-top: 2px solid rgba(0,0,0,0.1);
+}
+
+.feed_post {
+  font-size: 18px;
 }
 
 .feed_post img {
@@ -17,4 +24,68 @@
 .delete_link {
   display: inline-block;
   border: 1px solid black;
+}
+
+.post_form {
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ee5253;
+  padding: 5px 0 5px 0;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.post_form form {
+  margin-left: 10px;
+}
+
+.post_form textarea {
+  width: 100%;
+  border-width: 0 0 0 0;
+  padding: 10px 0 10px 0;
+}
+
+.post_content {
+  padding: 10px 0 20px 5px;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+.comment_form {
+  border-bottom: 2px solid #ee5253;
+}
+
+.comment_form textarea {
+  width: 100%;
+  border-width: 2px 0 0 0;
+  border-color: rgba(0,0,0,0.1);
+  border-radius: 2px;
+  padding: 5px 10px 0 10px;
+}
+
+.comment_info {
+  font-size: 15px;
+}
+
+.post_form textarea:focus, .comment_form textarea:focus {
+  outline: none;
+}
+
+.post_form .button, .comment_form .button {
+  float: none;
+}
+
+.post_info {
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.small_avatar {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+.small_avatar_comments {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
 }
