@@ -10,11 +10,12 @@
 
 .feed_comment {
   border-top: 2px solid rgba(0,0,0,0.1);
-  padding: 5px 10px 5px 10px;
 }
 
 .feed_post {
   font-size: 18px;
+  padding-bottom: 5px;
+  margin-top: 0px;
 }
 
 .feed_post img {
@@ -28,15 +29,10 @@
 }
 
 .post_form {
-  margin-bottom: 0px;
   border-bottom: 2px solid #ee5253;
   padding: 5px 0 0 0;
   background-color: white;
   border-radius: 2px;
-}
-
-.post_form form {
-  
 }
 
 .post_form textarea {
@@ -47,16 +43,22 @@
 }
 
 .post_content {
-  padding: 10px 0 20px 5px;
+  font-size: 20px;
+  padding: 15px 0 25px 5px;
   border-bottom: 2px solid rgba(0,0,0,0.1);
+}
+
+.comment_content {
+  padding-left: 5px;
 }
 
 .comment_form {
   border-bottom: 2px solid #ee5253;
+  padding-bottom: 1px;
 }
 
 .comment_form textarea {
-  width: 100%;
+  width: 99%;
   border-width: 2px 0 0 0;
   border-color: rgba(0,0,0,0.1);
   border-radius: 2px;
@@ -65,6 +67,10 @@
 
 .comment_info {
   font-size: 15px;
+  padding: 4px;
+  width: 100%;
+  margin: 0;
+  background-color: rgba(235,235,235,0.4);
 }
 
 .comment_form textarea:focus, .post_form textarea:focus {
@@ -73,6 +79,7 @@
 
 .post_form .file {
   visibility: hidden;
+  transition: all 0.5s;
 }
 
 .post_form textarea:focus ~ .file {
@@ -86,10 +93,9 @@
   z-index: 1;
 }
 
-
 .post_info {
   padding: 10px;
-  margin-bottom: 5px;
+  background-color: rgba(255,0,0,0.1);
 }
 
 .small_avatar {
@@ -102,4 +108,51 @@
   width: 32px;
   height: 32px;
   display: inline-block;
+}
+
+.thumb_icon, .thumb_icon_liked {
+  position: relative;
+  font-size: 28px;
+  text-decoration: none;
+  top: 4px;
+  padding: 2px;
+}
+
+.thumb_icon:hover {
+  color: rgb(0,215,35);
+}
+
+a.thumb_icon {
+  color: black;
+}
+
+.thumb_icon_liked {
+  color: rgb(0,215,35);
+}
+
+.likes_container {
+  display: inline-block;
+  border-left: 2px solid rgba(0,0,0,0.5);
+  padding: 0 5px 10px 5px;
+  height: 22px;
+  background-color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.trash_icon {
+  position: relative;
+  display: inline-block;
+  margin-left: 12px;
+  text-decoration: none;
+  transform: scale(1.5);
+  cursor: not-allowed;
+}
+
+.trash_icon:hover {
+  color: red;
+}
+
+a.trash_icon {
+  color: black;
 }

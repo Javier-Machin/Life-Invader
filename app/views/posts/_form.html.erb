@@ -3,7 +3,9 @@
     <div>
       <%= f.text_area :content, size: "55x5", placeholder: "New post..." %>
       <%= f.submit "Send post", class: "button" %>
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "button, file" %>  
+      <%= f.file_field :picture, 
+                        accept: 'image/jpeg,image/gif,image/png', 
+                        class: "button, file" %>  
     </div>
   <% end %>
 </div>  

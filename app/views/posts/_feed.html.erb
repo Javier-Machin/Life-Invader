@@ -11,23 +11,27 @@
                   profile_path(id: post.author.id), 
                   class: "dropdown_link") %>
       <%= "#{time_ago_in_words(post.created_at)} ago" %>
-      <%= post.likes.size %>
-      <% if post.likes.map(&:author).include?(current_user) %>
-        <%= link_to("👎", 
-                    like_path(type: "post", 
-                              id: Like.find_by(author: current_user, 
-                                               likeable: post).id),                                 
-                    method: :delete, 
-                    class: "delete_link") %>
-      <% else %>
-        <%= link_to("👍", 
-                    likes_path(type: "post", like: { likeable: post }),                                 
-                    method: :post, 
-                    class: "delete_link") %>
-      <% end %>
+      <div class="likes_container">
+        <% if post.likes.map(&:author).include?(current_user) %>
+          <%= link_to("👍", 
+                      like_path(type: "post", 
+                                id: Like.find_by(author: current_user, 
+                                                 likeable: post).id),                                 
+                      method: :delete, 
+                      class: "thumb_icon_liked") %>
+        <% else %>
+          <%= link_to("👍", 
+                      likes_path(type: "post", like: { likeable: post }),                                 
+                      method: :post, 
+                      class: "thumb_icon") %>
+        <% end %>
+        <%= post.likes.size %>
+      </div>
       <% if post.author == current_user %>
-        <%= link_to("Delete post", post_path(id: post.id),
-            method: :delete, class: "delete_link") %>
+        <%= link_to("🗑", post_path(id: post.id),
+            method: :delete, 
+            class: "trash_icon",
+            data: {confirm: 'Are you sure?'}) %>
       <% end %>
       </div>
       <div><%= image_tag post.picture.url if post.picture? %></div>
@@ -45,31 +49,33 @@
               <%= link_to(comment.author.name,
                           profile_path(id: comment.author.id), 
                           class: "dropdown_link") %>
-            <%= "#{time_ago_in_words(comment.created_at)} ago" %>
+              <%= "#{time_ago_in_words(comment.created_at)} ago" %>
+              <div class="likes_container">
+                <% if comment.likes.map(&:author).include?(current_user) %>
+                  <%= link_to("👍", 
+                              like_path(type: "comment", 
+                                        id: Like.find_by(author: current_user, 
+                                                         likeable: comment).id),                                 
+                                        method: :delete, 
+                                        class: "thumb_icon_liked") %>
+                <% else %>
+                  <%= link_to("👍", 
+                              likes_path(type: "comment", 
+                                         like: { likeable: comment }),                                 
+                                         method: :post, 
+                                         class: "thumb_icon") %>
+              <% end %>
               <%= comment.likes.size %>
-              <% if comment.likes.map(&:author).include?(current_user) %>
-                <%= link_to("👎", 
-                            like_path(type: "comment", 
-                                      id: Like.find_by(author: current_user, 
-                                                       likeable: comment).id),                                 
-                                      method: :delete, 
-                                      class: "delete_link") %>
-          
-            <% else %>
-              <%= link_to("👍", 
-                          likes_path(type: "comment", 
-                                     like: { likeable: comment }),                                 
-                                     method: :post, 
-                                     class: "delete_link") %>
-            <% end %>
+            </div>
             <% if comment.author == current_user %>
-              <%= link_to("Delete comment", 
+              <%= link_to("🗑", 
                            comment_path(id: comment.id),
-                           method: :delete) %>
+                           method: :delete,
+                           class: "trash_icon",
+                           data: {confirm: 'Are you sure?'}) %>
             <% end %>
             </div><br />
-            <%= comment.content %>
-
+            <div class="comment_content"><%= comment.content %></div>
             <br />  
           </div>  
         <% end %>
