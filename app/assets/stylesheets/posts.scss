@@ -10,6 +10,7 @@
 
 .feed_comment {
   border-top: 2px solid rgba(0,0,0,0.1);
+  padding: 5px 10px 5px 10px;
 }
 
 .feed_post {
@@ -27,21 +28,22 @@
 }
 
 .post_form {
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   border-bottom: 2px solid #ee5253;
-  padding: 5px 0 5px 0;
+  padding: 5px 0 0 0;
   background-color: white;
   border-radius: 2px;
 }
 
 .post_form form {
-  margin-left: 10px;
+  
 }
 
 .post_form textarea {
-  width: 100%;
+  width: 99%;
   border-width: 0 0 0 0;
   padding: 10px 0 10px 0;
+  margin-left: 10px;
 }
 
 .post_content {
@@ -65,13 +67,25 @@
   font-size: 15px;
 }
 
-.post_form textarea:focus, .comment_form textarea:focus {
+.comment_form textarea:focus, .post_form textarea:focus {
   outline: none;
 }
 
-.post_form .button, .comment_form .button {
-  float: none;
+.post_form .file {
+  visibility: hidden;
 }
+
+.post_form textarea:focus ~ .file {
+  visibility: visible;
+}
+
+.post_form .button, .comment_form .button {
+  position: relative;
+  float: none;
+  opacity: 1;
+  z-index: 1;
+}
+
 
 .post_info {
   padding: 10px;

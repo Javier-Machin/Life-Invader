@@ -1,9 +1,9 @@
 <div class="post_form">
   <%= form_for(@post) do |f| %>
-    <div><%= f.text_area :content, size: "55x5", placeholder: "New post..." %></div>
     <div>
-      <%= f.submit "Post", class: "button" %>
-      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "button" %>  
+      <%= f.text_area :content, size: "55x5", placeholder: "New post..." %>
+      <%= f.submit "Send post", class: "button" %>
+      <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png', class: "button, file" %>  
     </div>
   <% end %>
 </div>  

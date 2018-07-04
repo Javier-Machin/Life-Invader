@@ -69,12 +69,10 @@
             <% end %>
             </div><br />
             <%= comment.content %>
-            <div class="comment_info">
-              
-            </div>
+
             <br />  
-          <% end %>
-        </div>
+          </div>  
+        <% end %>
       </div>
     <% end %>
     <% if current_user.friends.include?(post.author) || 
