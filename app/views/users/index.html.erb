@@ -2,15 +2,21 @@
   <div class="feed_container">
     <% @users.each do |user| %>
       <% next if user == current_user %>      
-      <h4>
+      <div class="users_list">
+        <% if user.profile.present? %>
+          <div class="small_avatar"><%= image_tag user.profile.url %></div>
+        <% elsif user.remote_profile.present? %>
+          <div class="small_avatar"><%= image_tag user.remote_profile %></div>
+        <% end %>
         <%= link_to(user.name,
             profile_path(id: user.id), class: "dropdown_link",
             target: :_blank) %>
+
         <% if allows_friends?(user) %>    
           <%= link_to("Send friend request", friend_requests_path(id: user.id),
               method: :post, class: "dropdown_link") %>
         <% end %>
-      </h4>
+      </div>
     <% end %>
   </div>
 </div>

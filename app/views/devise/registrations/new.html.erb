@@ -1,6 +1,12 @@
+<style>
+  body {
+    background: none;
+  }
+</style>
+<%= image_tag "invaderlogin.jpg", class: "background_image" %>
 <div class="main_container">
   <div class="login_form">
-    <h2>Join us today</h2>  
+  <h2 style="letter-spacing: 4px">SIGN UP</h2> 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
       <%= f.text_field :name, autofocus: true, placeholder: "Name and last name", 
@@ -14,15 +20,18 @@
 
       <%= f.password_field :password_confirmation, autocomplete: "off",
                             placeholder: "Repeat password", class: "field" %><br />
-
-      <%= f.label :birthdate %><br />
+      <br />
+      <%= f.label :birthdate, "B I R T H D A T E" %><br /><br />
       <%= f.date_select :birthdate, start_year: 1920, end_year: 2000, class: "field" %>
-
-      <div class="action">
-        <%= f.submit "Sign up" %>
+      <br /><br />
+      <div style="border: 2px solid rgba(255,0,0,0.6); width: 100px; display: inline-block;" class="action">
+        <%= f.submit "Sign up", class: "button" %>
       </div>
     <% end %>
-     
+    <div style="font-weight: 800; font-size: 20px; margin-top: 15px;" class="button">
+      <%= link_to "Log in with Facebook", user_facebook_omniauth_authorize_path %> 
+    </div>
+    <br />
     <%= render "devise/shared/links" %>
   </div>
 </div>

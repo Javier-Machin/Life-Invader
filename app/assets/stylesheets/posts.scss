@@ -6,6 +6,7 @@
   background-color: white;
   border-radius: 4px;
   overflow: hidden;
+  box-shadow: 0px 3px 15px -5px; 
 }
 
 .feed_comment {
@@ -15,7 +16,6 @@
 .feed_post {
   font-size: 18px;
   padding-bottom: 5px;
-  margin-top: 0px;
 }
 
 .feed_post img {
@@ -95,7 +95,7 @@
 
 .post_info {
   padding: 10px;
-  background-color: rgba(255,0,0,0.1);
+  background-color: rgba(190,0,0,0.1);
 }
 
 .small_avatar {

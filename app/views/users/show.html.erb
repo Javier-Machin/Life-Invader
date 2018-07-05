@@ -1,27 +1,36 @@
 <div class="main_container">
-  <h2><%= @user.name %> profile</h2>
   <div class="profile_pic">
+    <h2><%= @user.name %></h2>
     <% if @user.profile.present? %>
       <%= image_tag @user.profile.url %>
     <% elsif @user.remote_profile.present? %>
       <%= image_tag @user.remote_profile %>
     <% end %>
+
     <% if @user == current_user %>
         <%= form_for(@user) do |f| %>
-          <%= f.submit "Update" %>
+          <%= f.submit "Update", class: "button" %>
           <%= f.file_field :profile,
                             accept: 'image/jpeg,image/gif,image/png',
-                            required: true  %>  
+                            required: true, 
+                            class: "button"  %>  
           <% end %>
-    <% elsif current_user.friends.include?(@user) %>
-      <%= link_to("Unfriend", friendship_path(@user.id),
-                   method: :delete, class: "delete_link",
-                   data: {:confirm => 'Are you sure?'}) %>
     <% end %>
+    <div class="registration_age">
+      <%= "Life invaded #{time_ago_in_words(@user.created_at)} ago" %> 
+    </div>
+    <br />
+    <% if current_user.friends.include?(@user) %>
+        <%= link_to("Unfriend", friendship_path(@user.id),
+                     method: :delete, class: "button",
+                     data: {:confirm => 'Are you sure?'}) %>
+    <% end %> 
     <%= link_to("Friend list", 
                  index_path(user_friend_list: @user.id),
-                 method: :get, class: "delete_link") %>
+                 method: :get, class: "button") %>
+    <br /><br />
   </div>
+  <br />
   <div class="feed_container">
     <% if @user == current_user %>
       <%= render 'posts/form' %>
