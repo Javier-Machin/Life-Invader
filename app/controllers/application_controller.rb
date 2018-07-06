@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
   private
   
     def get_requests
-      @requests = current_user.requests_received
+      @requests = current_user.requests_received.includes(:sender)
     end
 end

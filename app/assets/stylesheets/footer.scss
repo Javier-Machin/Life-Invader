@@ -1,0 +1,17 @@
+.footer {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Play', sans-serif;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  padding: 5px;
+  bottom: 0;
+  z-index: 2
+}
+
+.footer a {
+  text-decoration: none;
+  color: black;
+}

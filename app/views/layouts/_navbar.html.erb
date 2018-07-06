@@ -24,11 +24,18 @@
   </span>
   <div id="search_form">
     <%= form_for :search, url: {controller: 'users', action: 'index'}, method: :get do |f| %>
-      <%= f.text_field :name, class: "text_field", size: 25, placeholder: "Find new friends" %>
+      <%= f.text_field :name, class: "text_field", size: 18, placeholder: "Find new friends" %>
       <%= f.submit "🔍", class: "button" %>
     <% end %>
   </div>
   <div class="nav_buttons">
+    <% if current_user.profile.present? %>
+      <%= image_tag current_user.profile.url, class: "navbar_avatar" %>
+    <% elsif current_user.remote_profile.present? %>
+      <%= image_tag current_user.remote_profile, class: "navbar_avatar" %>
+    <% else %>
+      <%= image_tag "noprofile.png", class: "navbar_avatar" %>
+    <% end %>
     <a 
       id="profile_button" href=<%= profile_path current_user.id %>>
       <%= current_user.name.split(" ")[0] %> 
@@ -39,14 +46,24 @@
       id=<%= @requests && @requests.count > 0 ? "pending_notifications" : "notifications" %>> 
       <%= @requests && @requests.count > 0 ? "🔔#{@requests.count}": "🔔" %>
     </a>
-    <a id=home_button href=<%= root_path %>>H O M E</a>
-    <%= link_to("L O G O U T", destroy_user_session_path, method: :delete, id: "logout_button") %>
+    <a id=home_button href=<%= root_path %>>HOME</a>
+    <%= link_to("FRIENDS", 
+                 index_path(user_friend_list: current_user.id),
+                 method: :get, id: "friend_list") %>
+    <%= link_to("LOGOUT", destroy_user_session_path, method: :delete, id: "logout_button") %>
   </div>
 
   <% if @requests && @requests.count > 0 %>
     <div class="dropdown_menu">
       <% @requests.each do |request| %>
         <div class="dropdown_element">
+          <% if request.sender.profile.present? %>
+            <%= image_tag request.sender.profile.url, class: "small_avatar_comments" %>
+          <% elsif request.sender.remote_profile.present? %>
+            <%= image_tag request.sender.remote_profile, class: "small_avatar_comments" %>
+          <% else %>
+            <%= image_tag "noprofile.png", class: "small_avatar_comments" %>
+          <% end %>
           <%= link_to(User.find(request.request_sender).name,
               profile_path(id: request.request_sender), class: "dropdown_link",
               target: :_blank) %>   

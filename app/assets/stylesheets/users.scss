@@ -1,3 +1,52 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* user profile */
+
+.profile_pic {
+  width: 40%;
+  min-width: 600px;
+  margin: 90px auto 10px auto;
+  text-align: center;
+  background-color: white;
+  border-top: 6px solid #ee5253;
+  box-shadow: 0px 3px 15px -5px;
+}
+
+.profile_pic form {
+  visibility: hidden;
+  transition: visibility 6s;
+  margin-left: 10px;
+}
+
+.profile_pic img {
+  border-radius:5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.profile_pic img:hover ~ form {
+  visibility: visible;
+} 
+
+.profile_pic .button {
+  float: none;
+}
+
+.profile_pic a {
+  text-decoration: none;
+  color: black;
+}
+
+.registration_age {
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+/* user search and friend list */
+
+.users_list {
+  margin: 5px;
+}
+
+.users_list img {
+  height: auto;
+  width: 100%;
+}
