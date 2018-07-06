@@ -10,10 +10,10 @@
   <div class="login_form">
     <h2 style="letter-spacing: 4px">LOG IN</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.label :email %><br />
+      <div style="letter-spacing: 3px"><%= f.label :email, "EMAIL" %></div>
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field" %><br /><br />
 
-      <%= f.label :password %><br />
+      <div style="letter-spacing: 3px"><%= f.label :password, "PASSWORD" %></div>
       <%= f.password_field :password, autocomplete: "off", class: "field" %><br /><br />
 
       <% if devise_mapping.rememberable? -%>

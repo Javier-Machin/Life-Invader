@@ -7,6 +7,8 @@
           <div class="small_avatar"><%= image_tag user.profile.url %></div>
         <% elsif user.remote_profile.present? %>
           <div class="small_avatar"><%= image_tag user.remote_profile %></div>
+        <% else %>
+          <div class="small_avatar"><%= image_tag "noprofile.png" %></div>  
         <% end %>
         <%= link_to(user.name,
             profile_path(id: user.id), class: "dropdown_link",

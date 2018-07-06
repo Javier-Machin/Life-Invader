@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     end
 
   private
+  
     def get_requests
       @requests = current_user.requests_received
     end

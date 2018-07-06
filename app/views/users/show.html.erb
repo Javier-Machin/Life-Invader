@@ -5,6 +5,8 @@
       <%= image_tag @user.profile.url %>
     <% elsif @user.remote_profile.present? %>
       <%= image_tag @user.remote_profile %>
+    <% else %>
+      <%= image_tag "noprofile.png" %>
     <% end %>
 
     <% if @user == current_user %>

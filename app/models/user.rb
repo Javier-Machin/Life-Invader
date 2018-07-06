@@ -11,9 +11,9 @@ class User < ApplicationRecord
   has_many  :friends, through: :friendships, source: 'receiver'
   has_many  :friend_requests, class_name: "FriendRequest", foreign_key: 'request_sender'
   has_many  :requests_received, class_name: "FriendRequest", foreign_key: 'request_receiver'
-  has_many  :posts, foreign_key: 'author_id'
-  has_many  :comments, foreign_key: 'author_id'
-  has_many  :likes, foreign_key: 'author_id'
+  has_many  :posts, foreign_key: 'author_id', dependent: :destroy
+  has_many  :comments, foreign_key: 'author_id', dependent: :destroy
+  has_many  :likes, foreign_key: 'author_id', dependent: :destroy
   mount_uploader :profile, PictureUploader
 
 
