@@ -3,7 +3,7 @@
     background: none;
   }
 </style>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <%= image_tag "invaderlogin.jpg", class: "background_image" %>
 <div class="main_container">
   <div class="main_title">
@@ -12,10 +12,10 @@
     <h2 style="letter-spacing: 4px">LOG IN</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div style="letter-spacing: 3px"><%= f.label :email, "EMAIL" %></div>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "field" %><br /><br />
+      <%= f.email_field :email, autofocus: true, size: 17, autocomplete: "email", class: "field" %><br /><br />
 
       <div style="letter-spacing: 3px"><%= f.label :password, "PASSWORD" %></div>
-      <%= f.password_field :password, autocomplete: "off", class: "field" %><br /><br />
+      <%= f.password_field :password, autocomplete: "off", size: 17, class: "field" %><br /><br />
 
       <% if devise_mapping.rememberable? -%>
         <%= f.check_box :remember_me %>

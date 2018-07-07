@@ -65,6 +65,7 @@
 }
 
 .comment_info {
+  height: 50px;
   font-size: 15px;
   padding: 4px;
   width: 100%;
@@ -93,7 +94,7 @@
 }
 
 .post_info {
-  padding: 10px;
+  overflow: hidden;
   background-color: rgba(190,0,0,0.1);
 }
 
@@ -102,7 +103,6 @@
   font-size: 28px;
   text-decoration: none;
   top: 4px;
-  padding: 2px;
 }
 
 .thumb_icon:hover {
@@ -120,8 +120,7 @@ a.thumb_icon {
 .likes_container {
   display: inline-block;
   border-left: 2px solid rgba(0,0,0,0.5);
-  padding: 0 5px 10px 5px;
-  height: 22px;
+  padding: 0 5px;
   background-color: white;
   border-radius: 2px;
   cursor: pointer;

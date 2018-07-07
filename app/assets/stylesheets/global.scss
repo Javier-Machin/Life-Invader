@@ -5,13 +5,20 @@ html, body {
   background-color: rgba(240,240,240,0.9);
 }
 
+@-moz-document url-prefix() {
+  #notifications {
+    background-color: white;
+  }
+}
+
 @media only screen and (max-width: 768px) {
+
   .background_image {
     display: none;
   }
 
   .login_form {
-    margin-top: 0px;
+    margin-top: 0;
     width: 80% !important;
     min-width: 200px !important;
   }
@@ -23,16 +30,19 @@ html, body {
 
   #search_form {
     grid-area: left !important;
-    min-width: 180px !important;
+    
+    min-width: 120px !important;
+    margin-left: 1px !important;
   }
 
   .nav_buttons {
     grid-area: center-left !important;
-    min-width: 160px !important;
+    min-width: 180px !important;
   }
   
   #notifications {
-    padding: 2% !important;
+    
+    font-size: 18px !important;
   }
 
   #profile_button {
@@ -77,12 +87,13 @@ html, body {
     width: 100%;
   }
 
-  img.navbar_avatar  {
+  img.navbar_avatar {
     display: none;
   }
 
-  #search_form {
-    margin-left: 5px !important;
+  .text_field {
+    height: 15px !important;
+    min-width: 0px !important;
   }
 
   .field {
@@ -92,6 +103,7 @@ html, body {
   .main_container { 
     margin-top: 80px;
     margin-bottom: 20px;
+    min-width: 200px !important;
   }
 
   .profile_pic {
@@ -102,6 +114,33 @@ html, body {
   .feed_container { 
     width: 100% !important;
     min-width: 332px !important;
+  }
+
+  .feed_post .small_avatar {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .feed_post .dropdown_link {
+   padding: 0 !important;
+  }
+
+  .post_info, .comment_info {
+    font-size: 12px !important;
+  }
+
+  .likes_container {
+    padding: 1px !important;
+    font-size: 10px !important;
+  }
+
+  .thumb_icon, .thumb_icon_liked {
+    font-size: 16px !important;
+  }
+
+  .trash_icon {
+    transform: scale(1.1) !important;
+    margin-left: 3px !important;
   }
 }
 
@@ -118,7 +157,7 @@ html, body {
 
 .background_image {
   width: 100%;
-  min-width: 1280px;
+  min-width: 1920px !important;
   height: auto;
   position: fixed;
   opacity: 0.7;

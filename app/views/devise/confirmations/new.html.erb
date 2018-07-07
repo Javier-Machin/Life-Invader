@@ -19,11 +19,12 @@
         </ul>
       <% end %>
       <%= f.label :email %><br />
-      <%= f.email_field :email, 
-                          autofocus: true, 
-                          autocomplete: "email", 
-                          value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-                          class: "field" %>
+      <%= f.email_field :email,
+                         size: 16, 
+                         autofocus: true, 
+                         autocomplete: "email", 
+                         value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
+                         class: "field" %>
       <div class="actions">
         <%= f.submit "Resend confirmation instructions", class: "button" %>
       </div>

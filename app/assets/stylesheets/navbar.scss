@@ -140,6 +140,7 @@
   width: 40%;
   min-width: 180px;
   margin-left: 15px;
+  height: 25px;
 }
 
 .text_field {
@@ -148,7 +149,7 @@
   font-weight: 650;
   border: 0 solid white;
   border-radius: 4px;
-  margin-left: 10px;
+  padding-left: 5px;
   margin-top: 7px;
 }
 
@@ -224,6 +225,8 @@
 }
 
 .notifications {
+  border-radius: 4px;
+  padding: 2px 0 0 5px !important;
   cursor: pointer;
 }
 

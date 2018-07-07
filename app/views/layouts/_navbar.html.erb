@@ -24,7 +24,7 @@
   </span>
   <div id="search_form">
     <%= form_for :search, url: {controller: 'users', action: 'index'}, method: :get do |f| %>
-      <%= f.text_field :name, class: "text_field", size: 18, placeholder: "Find new friends" %>
+      <%= f.text_field :name, class: "text_field", size: 15, placeholder: "Find new friends" %>
       <%= f.submit "🔍", class: "button" %>
     <% end %>
   </div>

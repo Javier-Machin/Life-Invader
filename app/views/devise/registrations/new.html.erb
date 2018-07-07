@@ -15,17 +15,17 @@
         <% end %>
       </ul>
     <% end %>
-    <%= f.text_field :name, autofocus: true, placeholder: "Name and last name", 
+    <%= f.text_field :name, autofocus: true,size: 17, placeholder: "Name and last name", 
                       class: "field" %><br />
     
     <%= f.email_field :email, autofocus: true, autocomplete: "email", 
-                       placeholder: "Email", class: "field" %><br />
+                       placeholder: "Email",size: 17, class: "field" %><br />
     
     <%= f.password_field :password, autocomplete: "off",
-                          placeholder: "Password", class: "field" %><br />
+                          placeholder: "Password",size: 17, class: "field" %><br />
 
     <%= f.password_field :password_confirmation, autocomplete: "off",
-                          placeholder: "Repeat password", class: "field" %><br />
+                          placeholder: "Repeat password",size: 17, class: "field" %><br />
     <br />
     <%= f.label :birthdate, "B I R T H D A T E" %><br /><br />
     <%= f.date_select :birthdate, start_year: 1920, end_year: 2000, class: "field" %>
