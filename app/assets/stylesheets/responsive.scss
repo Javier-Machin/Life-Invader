@@ -1,0 +1,143 @@
+@media only screen and (max-width: 768px) {
+
+  .background_image {
+    display: none;
+  }
+
+  .login_form {
+    margin-top: 0;
+    width: 80% !important;
+    min-width: 200px !important;
+  }
+
+  .navbar {
+    margin-bottom: 0;
+    min-width: 200px !important;
+  }
+
+  #search_form {
+    grid-area: left !important;
+    
+    min-width: 120px !important;
+    margin-left: 1px !important;
+  }
+
+  .nav_buttons {
+    grid-area: center-left !important;
+    min-width: 180px !important;
+  }
+  
+  #notifications {
+    
+    font-size: 18px !important;
+  }
+
+  #profile_button {
+    padding: 2% !important;
+  }
+
+  #logout_button {
+    padding: 1% !important;
+  }
+  
+  #friend_list {
+    padding: 1% !important;
+  }
+
+  #home_button {
+    position: relative;
+    padding: 1% !important;
+    font-size: 25px !important;
+    top: 3px !important;
+  }
+
+  #alien_logo { 
+    grid-area: right !important;
+    margin-right: 10px;
+  }
+
+   #logout_button:after { 
+    content: "🚪" !important;
+  }
+  
+   #friend_list:after { 
+    content: '👤' !important;
+  }
+
+  #home_button:after {
+    display: none;
+  }
+
+  .logged_off_navbar {
+    margin-bottom: 0;
+    min-width: 200px ;
+    width: 100%;
+  }
+
+  img.navbar_avatar {
+    display: none;
+  }
+
+  .text_field {
+    height: 15px !important;
+    min-width: 0px !important;
+  }
+
+  .field {
+   width: 75%;
+  }
+
+  .main_container { 
+    margin-top: 80px;
+    margin-bottom: 20px;
+    min-width: 200px !important;
+  }
+
+  .profile_pic {
+    min-width: 332px !important;
+    width: 100% !important;
+  }
+
+  .feed_container { 
+    width: 100% !important;
+    min-width: 332px !important;
+  }
+
+  .feed_post .small_avatar {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .feed_post .dropdown_link {
+   padding: 0 !important;
+  }
+
+  .post_info, .comment_info {
+    font-size: 12px !important;
+  }
+
+  .likes_container {
+    padding: 1px !important;
+    font-size: 10px !important;
+  }
+
+  .thumb_icon, .thumb_icon_liked {
+    font-size: 16px !important;
+  }
+
+  .trash_icon {
+    transform: scale(1.1) !important;
+    margin-left: 3px !important;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  #alien_logo svg {
+    display: none;
+  }
+
+  #home_button:after {
+    display: inline;
+    content: "⌂" !important;
+  }
+}
