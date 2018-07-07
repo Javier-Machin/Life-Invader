@@ -100,10 +100,8 @@
 }
 
 .thumb_icon, .thumb_icon_liked {
-  position: relative;
-  font-size: 28px;
+  font-size: 25px;
   text-decoration: none;
-  top: 4px;
 }
 
 .thumb_icon:hover {
@@ -121,10 +119,11 @@ a.thumb_icon {
 .likes_container {
   display: inline-block;
   border-left: 2px solid rgba(0,0,0,0.5);
-  padding: 0 5px;
+  padding: 0 5px 5px 5px;
   background-color: white;
   border-radius: 2px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .trash_icon {
