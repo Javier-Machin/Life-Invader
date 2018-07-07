@@ -43,3 +43,8 @@ html, body {
   height: 32px;
   display: inline-block;
 }
+
+.small_avatar, .small_avatar_comments {
+  position: relative;
+  top: 10px;
+}
