@@ -1,17 +1,17 @@
 
 # Create Users
 
-User.create(name: "User1",
+User.create(name: "John Smith",
             email: "Email1@example.com",
             password: "123456", 
             birthdate: "1985/02/25")
 
-User.create(name: "User2",
+User.create(name: "Corven Dallas",
             email: "Email2@example.com",
             password: "123456", 
             birthdate: "1985/02/24")
 
-User.create(name: "User3", 
+User.create(name: "Hans Grubber", 
             email: "Email3@example.com",
             password: "123456", 
             birthdate: "1985/02/23")
