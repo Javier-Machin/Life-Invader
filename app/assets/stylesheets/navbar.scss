@@ -65,7 +65,6 @@
   font-weight: 600;
   text-decoration: none;
   color: white;
-  transition: all 0.3s linear;
 }
 
 .navbar span {
@@ -84,6 +83,7 @@
   height: 32px;
   display: inline-block;
   border-radius: 100px;
+  margin-left: 10px;
 }
 
 #alien_logo svg {
@@ -102,14 +102,12 @@
   align-self: center;
   grid-area: center-right;
   fill: white;
-  transition: all 1s;
   z-index: 10;
 }
 
 .logged_off_title_left {
   grid-area: left;
   position: absolute;
-  transition: all 1s;
   top: 20px;
   display: inline-block;
   font-size: 31px;
@@ -122,7 +120,6 @@
 .logged_off_title_right {
   grid-area: left;
   position: absolute;
-  transition: all 1s;
   top: 50px;
   display: inline-block;
   font-size: 18px;
@@ -198,6 +195,10 @@
   letter-spacing: 3px;
 }
 
+#logout_button:after {
+  content: "LOGOUT";
+}
+
 #friend_list {
   font-size: 15px;
   font-weight: 1000;
@@ -206,12 +207,20 @@
   letter-spacing: 3px;
 }
 
+#friend_list:after {
+  content: "FRIENDS";
+}
+
 #home_button {
   font-size: 15px;
   font-weight: 1000;
   padding: 5px 10px 5px 10px;
   color: rgba(0,0,0,0.7);
   letter-spacing: 3px;
+}
+
+#home_button:after {
+  content: "HOME";
 }
 
 .notifications {
@@ -234,7 +243,6 @@
   padding: 8px;
   background-color: white;
   border-radius: 3px;
-  transition: all 0.5s;
 }
 
 .dropdown_element {

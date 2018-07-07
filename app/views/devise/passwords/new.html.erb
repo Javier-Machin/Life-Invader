@@ -9,7 +9,13 @@
     <div>
     <h2>Forgot your password?</h2>
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= devise_error_messages! %>
+      <% if @user.errors.messages.any? %>
+        <ul style="text-align: left;">
+          <% @user.errors.messages.each do |msg| %>
+            <li><%= "#{msg[0].capitalize} #{msg[1][0]}" %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"field" %>
       <div class="actions">

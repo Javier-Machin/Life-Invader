@@ -46,11 +46,11 @@
       id=<%= @requests && @requests.count > 0 ? "pending_notifications" : "notifications" %>> 
       <%= @requests && @requests.count > 0 ? "🔔#{@requests.count}": "🔔" %>
     </a>
-    <a id=home_button href=<%= root_path %>>HOME</a>
-    <%= link_to("FRIENDS", 
+    <a id=home_button href=<%= root_path %>></a>
+    <%= link_to("", 
                  index_path(user_friend_list: current_user.id),
                  method: :get, id: "friend_list") %>
-    <%= link_to("LOGOUT", destroy_user_session_path, method: :delete, id: "logout_button") %>
+    <%= link_to("", destroy_user_session_path, method: :delete, id: "logout_button") %>
   </div>
 
   <% if @requests && @requests.count > 0 %>

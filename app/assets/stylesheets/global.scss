@@ -5,12 +5,123 @@ html, body {
   background-color: rgba(240,240,240,0.9);
 }
 
+@media only screen and (max-width: 768px) {
+  .background_image {
+    display: none;
+  }
+
+  .login_form {
+    margin-top: 0px;
+    width: 80% !important;
+    min-width: 200px !important;
+  }
+
+  .navbar {
+    margin-bottom: 0;
+    min-width: 200px !important;
+  }
+
+  #search_form {
+    grid-area: left !important;
+    min-width: 180px !important;
+  }
+
+  .nav_buttons {
+    grid-area: center-left !important;
+    min-width: 160px !important;
+  }
+  
+  #notifications {
+    padding: 2% !important;
+  }
+
+  #profile_button {
+    padding: 2% !important;
+  }
+
+  #logout_button {
+    padding: 1% !important;
+  }
+  
+  #friend_list {
+    padding: 1% !important;
+  }
+
+  #home_button {
+    position: relative;
+    padding: 1% !important;
+    font-size: 25px !important;
+    top: 3px !important;
+  }
+
+  #alien_logo { 
+    grid-area: right !important;
+    margin-right: 10px;
+  }
+
+   #logout_button:after { 
+    content: "🚪" !important;
+  }
+  
+   #friend_list:after { 
+    content: '👤' !important;
+  }
+
+  #home_button:after {
+    display: none;
+  }
+
+  .logged_off_navbar {
+    margin-bottom: 0;
+    min-width: 200px ;
+    width: 100%;
+  }
+
+  img.navbar_avatar  {
+    display: none;
+  }
+
+  #search_form {
+    margin-left: 5px !important;
+  }
+
+  .field {
+   width: 75%;
+  }
+
+  .main_container { 
+    margin-top: 80px;
+    margin-bottom: 20px;
+  }
+
+  .profile_pic {
+    min-width: 332px !important;
+    width: 100% !important;
+  }
+
+  .feed_container { 
+    width: 100% !important;
+    min-width: 332px !important;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  #alien_logo svg {
+    display: none;
+  }
+
+  #home_button:after {
+    display: inline;
+    content: "⌂" !important;
+  }
+}
+
 .background_image {
   width: 100%;
   min-width: 1280px;
   height: auto;
   position: fixed;
-  opacity: 1;
+  opacity: 0.7;
   top: 85px;
   left: 0;
   z-index: -1;
@@ -37,6 +148,3 @@ html, body {
   height: 32px;
   display: inline-block;
 }
-
-
-  

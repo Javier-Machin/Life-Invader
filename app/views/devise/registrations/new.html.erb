@@ -7,27 +7,33 @@
 <div class="main_container">
   <div class="login_form">
   <h2 style="letter-spacing: 4px">SIGN UP</h2> 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= devise_error_messages! %>
-      <%= f.text_field :name, autofocus: true, placeholder: "Name and last name", 
-                        class: "field" %><br />
-      
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", 
-                         placeholder: "Email", class: "field" %><br />
-      
-      <%= f.password_field :password, autocomplete: "off",
-                            placeholder: "Password", class: "field" %><br />
-
-      <%= f.password_field :password_confirmation, autocomplete: "off",
-                            placeholder: "Repeat password", class: "field" %><br />
-      <br />
-      <%= f.label :birthdate, "B I R T H D A T E" %><br /><br />
-      <%= f.date_select :birthdate, start_year: 1920, end_year: 2000, class: "field" %>
-      <br /><br />
-      <div style="border: 2px solid rgba(255,0,0,0.6); width: 100px; display: inline-block;" class="action">
-        <%= f.submit "Sign up", class: "button" %>
-      </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <% if @user.errors.messages.any? %>
+      <ul style="text-align: left;">
+        <% @user.errors.messages.each do |msg| %>
+          <li><%= "#{msg[0].capitalize} #{msg[1][0]}" %></li>
+        <% end %>
+      </ul>
     <% end %>
+    <%= f.text_field :name, autofocus: true, placeholder: "Name and last name", 
+                      class: "field" %><br />
+    
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", 
+                       placeholder: "Email", class: "field" %><br />
+    
+    <%= f.password_field :password, autocomplete: "off",
+                          placeholder: "Password", class: "field" %><br />
+
+    <%= f.password_field :password_confirmation, autocomplete: "off",
+                          placeholder: "Repeat password", class: "field" %><br />
+    <br />
+    <%= f.label :birthdate, "B I R T H D A T E" %><br /><br />
+    <%= f.date_select :birthdate, start_year: 1920, end_year: 2000, class: "field" %>
+    <br /><br />
+    <div style="border: 2px solid rgba(255,0,0,0.6); width: 100px; display: inline-block;" class="action">
+      <%= f.submit "Sign up", class: "button" %>
+    </div>
+  <% end %>
     <div style="font-weight: 800; font-size: 20px; margin-top: 15px;" class="button">
       <%= link_to "Log in with Facebook", user_facebook_omniauth_authorize_path %> 
     </div>
