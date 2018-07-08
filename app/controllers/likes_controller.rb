@@ -22,7 +22,7 @@ class LikesController < ApplicationController
       @post = @like.likeable.id
       @type = @like.likeable_type.downcase
       @like.destroy 
-      @likes = @like.likeable.likes.size.to_s 
+      @likes = @like.likeable.likes.size
     end
     respond_to do |format|
       format.js
