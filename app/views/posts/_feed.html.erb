@@ -63,7 +63,7 @@
                                       id: Like.find_by(author: current_user, 
                                                        likeable: comment).id),                                 
                                       method: :delete,
-                                      id: "thumb#{comment.id}", 
+                                      id: "thumb#{comment.id*100000}", 
                                       class: "thumb_icon_liked",
                                       remote: true) %>
               <% else %>
@@ -71,11 +71,11 @@
                             likes_path(type: "comment", 
                                        like: { likeable: comment }),                                 
                                        method: :post,
-                                       id: "thumb#{comment.id}", 
+                                       id: "thumb#{comment.id*100000}", 
                                        class: "thumb_icon",
                                        remote: true) %>
             <% end %>
-            <div style="display: inline;" id=like_counter_<%=comment.id%>><%= comment.likes.size %></div>
+            <div style="display: inline;" id=like_counter_<%=comment.id*100000%>><%= comment.likes.size %></div>
           </div>
           <% if comment.author == current_user %>
             <%= link_to("🗑", 

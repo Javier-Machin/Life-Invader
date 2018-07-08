@@ -1,3 +1,4 @@
+<%= @post = (@post.to_i * 100000).to_s if @type == "comment" %>
 $("#like_counter_<%= @post %>").html(<%= @likes %>);
 $("#thumb<%= @post %>").addClass('thumb_icon_liked').removeClass('thumb_icon');
 $("#thumb<%= @post %>").attr("href", "<%= like_path(type: @type, id: Like.find_by(author: current_user, likeable: @like.likeable).id) %>");
