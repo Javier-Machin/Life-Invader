@@ -61,7 +61,7 @@
 
 .nav_buttons a {
   padding: 4px 8px;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   color: white;
@@ -228,6 +228,7 @@
   border-radius: 4px;
   padding: 2px 0 0 5px !important;
   cursor: pointer;
+  background-color: white;
 }
 
 #pending_notifications {
@@ -250,7 +251,8 @@
 
 .dropdown_element {
   border-bottom: 2px solid rgba(255,0,0,0.3);
-  padding: 5px;
+  margin-bottom: 3px;
+  padding: 5px 5px 8px 5px;
 }
 
 .visible { 

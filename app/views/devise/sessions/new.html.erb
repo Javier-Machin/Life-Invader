@@ -6,11 +6,14 @@
 
 <%= image_tag "invaderlogin.jpg", class: "background_image" %>
 <div class="main_container">
-  <div class="main_title">
-  </div>
+  <div class="main_title"></div>
   <div class="login_form">
+    <%- flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "flash" if msg.is_a?(String) %>
+    <%- end -%>
     <h2 style="letter-spacing: 4px">LOG IN</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      
       <div style="letter-spacing: 3px"><%= f.label :email, "EMAIL" %></div>
       <%= f.email_field :email, autofocus: true, size: 17, autocomplete: "email", class: "field" %><br /><br />
 
