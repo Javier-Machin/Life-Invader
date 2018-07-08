@@ -1,0 +1,4 @@
+$("#like_counter_<%= @post %>").html(<%= @likes %>);
+$("#thumb<%= @post %>").addClass('thumb_icon_liked').removeClass('thumb_icon');
+$("#thumb<%= @post %>").attr("href", "<%= like_path(type: @type, id: Like.find_by(author: current_user, likeable: @post).id) %>");
+$("#thumb<%= @post %>").attr("data-method", "delete");

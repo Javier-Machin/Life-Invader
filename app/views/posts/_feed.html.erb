@@ -15,18 +15,21 @@
     <div class="likes_container">
       <% if post.likes.map(&:author).include?(current_user) %>
         <%= link_to("👍", 
-                    like_path(type: "post", 
-                              id: Like.find_by(author: current_user, 
-                                               likeable: post).id),                                 
-                    method: :delete, 
-                    class: "thumb_icon_liked") %>
+                    like_path(type: "post", id: Like.find_by(author: current_user, 
+                                                             likeable: post).id),                                 
+                    method: :delete,
+                    id: "thumb#{post.id}",
+                    class: "thumb_icon_liked",
+                    remote: true) %>
       <% else %>
         <%= link_to("👍", 
                     likes_path(type: "post", like: { likeable: post }),                                 
-                    method: :post, 
-                    class: "thumb_icon") %>
+                    method: :post,
+                    id: "thumb#{post.id}",
+                    class: "thumb_icon",
+                    remote: true) %>
       <% end %>
-      <%= post.likes.size %>
+      <div style="display: inline;" id=like_counter_<%=post.id%>><%= post.likes.size %></div>
     </div>
     <% if post.author == current_user %>
       <%= link_to("🗑", post_path(id: post.id),
@@ -59,16 +62,20 @@
                             like_path(type: "comment", 
                                       id: Like.find_by(author: current_user, 
                                                        likeable: comment).id),                                 
-                                      method: :delete, 
-                                      class: "thumb_icon_liked") %>
+                                      method: :delete,
+                                      id: "thumb#{comment.id}", 
+                                      class: "thumb_icon_liked",
+                                      remote: true) %>
               <% else %>
                 <%= link_to("👍", 
                             likes_path(type: "comment", 
                                        like: { likeable: comment }),                                 
-                                       method: :post, 
-                                       class: "thumb_icon") %>
+                                       method: :post,
+                                       id: "thumb#{comment.id}", 
+                                       class: "thumb_icon",
+                                       remote: true) %>
             <% end %>
-            <%= comment.likes.size %>
+            <div style="display: inline;" id=like_counter_<%=comment.id%>><%= comment.likes.size %></div>
           </div>
           <% if comment.author == current_user %>
             <%= link_to("🗑", 

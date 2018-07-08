@@ -8,13 +8,25 @@ class LikesController < ApplicationController
       @like = current_user.likes.new(likeable: Comment.find(like_params[:likeable]))
     end
     @like.save
-    redirect_back(fallback_location: root_path) 
+    @post = @like.likeable.id
+    @likes = @like.likeable.likes.size
+    @type = @like.likeable_type.downcase
+    respond_to do |format|
+      format.js 
+    end 
   end
 
   def destroy
     @like = Like.find(params[:id])
-    @like.destroy if @like.author == current_user 
-    redirect_back(fallback_location: root_path)
+    if @like.author == current_user
+      @post = @like.likeable.id
+      @type = @like.likeable_type.downcase
+      @like.destroy 
+      @likes = @like.likeable.likes.size.to_s 
+    end
+    respond_to do |format|
+      format.js
+    end 
   end
 
   private
