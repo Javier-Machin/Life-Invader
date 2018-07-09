@@ -11,9 +11,15 @@
 }
 
 .profile_pic form {
-  visibility: hidden;
-  transition: visibility 6s;
   margin-left: 10px;
+}
+
+.visible_form {
+  visibility: visible;
+}
+
+.hidden_form {
+  visibility: hidden;
 }
 
 .profile_pic img {
@@ -21,10 +27,6 @@
   cursor: pointer;
   margin-left: 10px;
 }
-
-.profile_pic img:hover ~ form {
-  visibility: visible;
-} 
 
 .profile_pic .button {
   float: none;
