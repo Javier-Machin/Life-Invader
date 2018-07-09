@@ -24,12 +24,35 @@ You can [check it online here](https://life-invader-fb.herokuapp.com)
 It can take a bit to load as Heroku starts a dyno and be patient with the sign up mail, 
 it takes a few minutes sometimes.
 
-Or you can clone the repo and:
-
 The database is postgreSQL for development and production.
 
-Set your pg username in `config/database.yml` and your password as ENV variable in 
-`config/application.yml` (you might need to create that file, used by Figaro gem).
+How to setup postgres:
+
+Installation:
+
+```
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib libpq-dev
+
+```
+Creating a postgres database user:
+
+`sudo -u postgres createuser -s pguser` (change pguser to your username)
+
+Setting up a postgres user password:
+
+`sudo -u postgres psql`
+(You are in postgres console now)
+`\password pguser` (change pguser to your username)
+`enter your password`
+`\q` to leave postgres console.
+
+Using your PG user in Rails:
+
+Set your pg username in `config/database.yml`
+Set your password as ENV variable in `config/application.yml` (you might need to create that file, used by Figaro).
+
+Setting up the Rails app:
 
 ```
 bundle install

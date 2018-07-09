@@ -25,4 +25,4 @@ production:
   <<: *default
   database: LifeInvader_production
   username: lifeinvader
-  password: <%= ENV['LIFEINVADER_DATABASE_PASSWORD'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
