@@ -1,6 +1,7 @@
 # Life Invader
 
 Life Invader (name from GTA V's parody social network) is a Facebook clone made in Ruby on Rails
+
 Some of its features are:
 
 * Sign up new users (Devise)
@@ -26,6 +27,7 @@ it takes a few minutes sometimes.
 Or you can clone the repo and:
 
 The database is postgreSQL for development and production.
+
 Set your pg username in `config/database.yml` and your password as ENV variable in 
 `config/application.yml` (you might need to create that file, used by Figaro gem).
 
