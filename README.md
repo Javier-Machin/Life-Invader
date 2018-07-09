@@ -16,13 +16,19 @@ Some of its features are:
 * Bullet optimized Active Record queries
 
 ![Life Invader screenshot 1](public/LifeInvader1.jpg)
+
 ![Life Invader screenshot 2](public/LifeInvader2.jpg)
 
 You can [check it online here](https://life-invader-fb.herokuapp.com) 
 It can take a bit to load as Heroku starts a dyno and be patient with the sign up mail, 
 it takes a few minutes sometimes.
 
-Or you can clone the repo and run:
+Or you can clone the repo and:
+
+The database is postgreSQL for development and production.
+Set your pg username in `config/database.yml` and your password as ENV variable in 
+`config/application.yml` (you might need to create that file, used by Figaro gem).
+
 ```
 bundle install
 rails db:migrate
@@ -46,5 +52,7 @@ or from the links in the emails that will pop up after seeding, from letter_open
 
 * email3@example.com 
   PW: 123456
+
+  To run the test suite `rails test`
 
 You can find me in https://gitter.im/TheOdinProject/theodinproject  @Javier-Machin
