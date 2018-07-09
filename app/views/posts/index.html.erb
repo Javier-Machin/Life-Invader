@@ -1,8 +1,10 @@
 <div class="main_container">
   <div class="feed_container">
     <%= render 'posts/form' %>
-    <% if @posts %>
+    <% if @posts.any? %>
       <%= render 'posts/feed' %>
+    <% else %>
+      <%= render 'posts/welcome' %>
     <% end %>
   </div>
 </div>
