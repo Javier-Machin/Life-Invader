@@ -1,24 +1,50 @@
-# README
+# Life Invader
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Life Invader (name from GTA V's parody social network) is a Facebook clone made in Ruby on Rails
+Some of its features are:
 
-Things you may want to cover:
+* Sign up new users (Devise)
+* Facebook sing up and log in (OAUTH)
+* Send confirmation email (action required)
+* Make new posts, allow images
+* Make comments
+* Update profile picture
+* Send friend requests, accept and decline them
+* Fully functional friends search
+* Responsive design
+* Test suite
+* Bullet optimized Active Record queries
 
-* Ruby version
+![Life Invader screenshot 1](public/LifeInvader1.jpg)
+![Life Invader screenshot 2](public/LifeInvader2.jpg)
 
-* System dependencies
+You can [check it online here](https://life-invader-fb.herokuapp.com) 
+It can take a bit to load as Heroku starts a dyno and be patient with the sign up mail, 
+it takes a few minutes sometimes.
 
-* Configuration
+Or you can clone the repo and run:
+```
+bundle install
+rails db:migrate
+rails db:seed
+rails server
+http://localhost:3000/ in your web browser
+```
+The seeds include 3 example users usable to log in (only development), but they must be confirmed first from console:
+```
+rails console
+User.first.confirm
+exit
+```
+or from the links in the emails that will pop up after seeding, from letter_opener.
 
-* Database creation
+* email1@example.com 
+  PW: 123456
 
-* Database initialization
+* email2@example.com 
+  PW: 123456
 
-* How to run the test suite
+* email3@example.com 
+  PW: 123456
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+You can find me in https://gitter.im/TheOdinProject/theodinproject  @Javier-Machin
