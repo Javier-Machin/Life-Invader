@@ -41,11 +41,12 @@ Creating a postgres database user:
 
 Setting up a postgres user password:
 
-`sudo -u postgres psql`
-(You are in postgres console now)
-`\password pguser` (change pguser to your username)
-`enter your password`
-`\q` to leave postgres console.
+```
+sudo -u postgres psql 
+\password pguser 
+enter your password
+\q
+``` 
 
 Using your PG user in Rails:
 
