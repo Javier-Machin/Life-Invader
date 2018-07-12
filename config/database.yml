@@ -10,7 +10,7 @@ development:
   host: localhost
   pool: 5
   username: lifeinvader
-  password: <%= ENV['LIFEINVADER_DATABASE_PASSWORD'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
 
 test:
   adapter: postgresql
@@ -19,7 +19,7 @@ test:
   host: localhost
   pool: 5
   username: lifeinvader
-  password: <%= ENV['LIFEINVADER_DATABASE_PASSWORD'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
 
 production:
   <<: *default
