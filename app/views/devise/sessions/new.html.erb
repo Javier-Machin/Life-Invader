@@ -8,9 +8,15 @@
 <div class="main_container">
   <div class="main_title"></div>
   <div class="login_form">
-    <%- flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: "flash" if msg.is_a?(String) %>
-    <%- end -%>
+    <% flash.each do |name, msg| %>
+      <% if msg.class == Array %>
+        <% msg.each do |message| %>
+          <%= content_tag :div, message, class: "flash" %>
+        <% end %>
+      <% else %>
+        <%= content_tag :div, msg, class: "flash" %>
+      <% end %>
+   <% end %>
     <h2 style="letter-spacing: 4px">LOG IN</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       

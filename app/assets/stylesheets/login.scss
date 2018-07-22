@@ -29,6 +29,10 @@ select {
   outline: none;
 }
 
+.button:focus {
+  outline: none;
+}
+
 .field {
   display: inline-block;
   font-size: 20px;
@@ -52,6 +56,8 @@ input.field  {
   margin: 5px;
   font-weight: 500;
 }
+
+
 
 .login_form a {
   text-decoration: none;

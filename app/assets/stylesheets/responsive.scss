@@ -5,35 +5,36 @@
   }
 
   .login_form {
-    margin-top: 0;
+    margin-top: 0 !important;
     width: 80% !important;
     min-width: 200px !important;
   }
 
   .navbar {
     margin-bottom: 0;
-    min-width: 200px !important;
+    min-width: 300px !important;
   }
 
   #search_form {
     grid-area: left !important;
     
     min-width: 120px !important;
-    margin-left: 1px !important;
+    margin-left: 3px !important;
   }
 
   .nav_buttons {
     grid-area: center-left !important;
-    min-width: 190px !important;
+    min-width: 235px !important;
   }
   
   #notifications {
-    
     font-size: 18px !important;
+    margin-left: 5px;
   }
 
   #profile_button {
     padding: 2% !important;
+    margin-left: 5px;
   }
 
   #logout_button {
@@ -58,14 +59,17 @@
 
    #logout_button:after { 
     content: "🚪" !important;
+    margin-left: 10px;
   }
   
    #friend_list:after { 
     content: '👤' !important;
+    margin-left: 10px;
   }
 
   #home_button:after {
     display: none;
+    margin-left: 15px;
   }
 
   .logged_off_navbar {
@@ -84,13 +88,13 @@
   }
 
   .field {
-   width: 75%;
+    width: 75%;
   }
 
   .main_container { 
     margin-top: 80px;
     margin-bottom: 20px;
-    min-width: 200px !important;
+    min-width: 300px !important;
   }
 
   .profile_pic {
