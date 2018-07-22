@@ -16,6 +16,7 @@
       <% else %>
         <%= content_tag :div, msg, class: "flash" %>
       <% end %>
+      <br>
    <% end %>
     <h2 style="letter-spacing: 4px">LOG IN</h2>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action do flash.keep(:notice) end
   before_action :authenticate_user!
 
   def index
