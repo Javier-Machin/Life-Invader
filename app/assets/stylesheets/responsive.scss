@@ -7,8 +7,8 @@
   .login_form {
     margin-top: 0 !important;
     width: 100% !important;
-    min-width: 200px !important;
-
+    padding: 65px 0 !important;
+    
     & > * {
       width: 400px;
       margin: 15px auto 0 auto;
@@ -21,8 +21,7 @@
   }
 
   #search_form {
-    grid-area: left !important;
-    
+    grid-area: left !important;   
     min-width: 120px !important;
     margin-left: 3px !important;
   }
