@@ -6,8 +6,13 @@
 
   .login_form {
     margin-top: 0 !important;
-    width: 80% !important;
+    width: 100% !important;
     min-width: 200px !important;
+
+    & > * {
+      width: 400px;
+      margin: 15px auto 0 auto;
+    }
   }
 
   .navbar {
@@ -46,10 +51,8 @@
   }
 
   #home_button {
-    position: relative;
     padding: 1% !important;
     font-size: 25px !important;
-    top: 3px !important;
   }
 
   #alien_logo { 
@@ -92,7 +95,7 @@
   }
 
   .main_container { 
-    margin-top: 80px;
+    margin-top: 40px !important;
     margin-bottom: 20px;
     min-width: 300px !important;
   }
@@ -100,6 +103,7 @@
   .profile_pic {
     min-width: 332px !important;
     width: 100% !important;
+    margin: 30px auto 0 auto !important;
   }
 
   .feed_container { 
@@ -139,13 +143,29 @@
   }
 }
 
+@media only screen and (max-width: 460px) {
+  .login_form {
+    & > * {
+      width: 300px;
+    }
+  }
+}
+
 @media only screen and (max-width: 390px) {
   #alien_logo svg {
     display: none;
   }
 
   #home_button:after {
+    position: relative;
+    top: -1px;
     display: inline;
     content: "⌂" !important;
+  }
+
+  .login_form {
+    & > * {
+      width: 280px;
+    }
   }
 }

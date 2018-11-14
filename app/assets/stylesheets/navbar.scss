@@ -53,9 +53,11 @@
 
 .nav_buttons {
   grid-area: center-right;
-  align-self: center;
-  justify-self: right;
-  display: inline;
+  // align-self: center;
+  // justify-self: right;
+  // display: inline;
+  display: flex;
+  align-items: center;
   min-width: 495px;
 }
 
@@ -77,10 +79,7 @@
 }
 
 .navbar_avatar {
-  position: relative;
-  top: 5px;
   width: 32px;
-  height: Auto;
   display: inline-block;
   border-radius: 100px;
   margin-left: 10px;
@@ -226,7 +225,7 @@
 
 .notifications {
   border-radius: 4px;
-  padding: 2px 0 0 5px !important;
+  padding: 1px 4px !important;
   cursor: pointer;
 
   background-color: white;
