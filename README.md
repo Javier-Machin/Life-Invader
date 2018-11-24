@@ -51,6 +51,7 @@ enter your password
 Using your PG user in Rails:
 
 Set your pg username in `config/database.yml`
+
 Set your password as ENV variable in `config/application.yml` (you might need to create that file, used by Figaro).
 
 Setting up the Rails app:
@@ -131,6 +132,7 @@ enter your password
 Usar el usuario Postgres en Rails:
 
 Añada su el nombre de su usuario en `config/database.yml`
+
 Añada su password de usuario como una ENV variable en `config/application.yml` (puede que tenga que crear ese archivo, usado por Figaro).
 
 Configurando Rails:
