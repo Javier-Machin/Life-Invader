@@ -20,19 +20,19 @@ The database is postgreSQL for development and production.
 
 ## Running the app locally:
 
-You need postgreSQL running in your system, the easiest way is to run it through docker:
+postgreSQL is required, the easiest way is to run it through docker:
 
-docker run --name postgres-container -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres
+`docker run --name postgres-container -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres`
 
 Using your PG user in Rails:
 
 Set your pg username (by default postgres) in `config/database.yml`
 
 Set your pg password (by default password) as ENV variable in `config/application.yml` (you will need to create that file, used by Figaro).
+
 `PG_PASSWORD: password`
 
 Setting up the Rails app:
-
 ```
 bundle install
 rails db:create
